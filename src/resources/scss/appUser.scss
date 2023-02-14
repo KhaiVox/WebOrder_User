@@ -1,0 +1,77 @@
+@import 'variables';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 16px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+input:focus {
+    border-radius: 1px solid red;
+}
+
+/* Thanh Scroll */
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $primary;
+}
+
+// Public
+.hidden {
+    display: none !important;
+}
+
+.active {
+}
+
+// Button
+.btn {
+    transition: 0.2s;
+    cursor: pointer;
+    padding: 6px 12px 5px;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    border-radius: $br5;
+    outline: none;
+}
+
+.btn-sort {
+    cursor: pointer;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+// Content
+@import 'home';
+@import 'base';
+@import 'grid';
+@import 'responsive';

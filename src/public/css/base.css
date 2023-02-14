@@ -1,0 +1,166 @@
+@charset "UTF-8";
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes growth {
+  from {
+    opacity: 0;
+    transform: scale(0); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+/* Button */
+.btn {
+  /* Để giá trị tối thiểu để có thể tăng kích thước sau này */
+  min-width: 120px;
+  min-height: 38px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }
+
+.btn-primary {
+  color: #fff;
+  background-color: #ed1438; }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  /* Đặt "flex" để căn giữa màn hình phần modal__body */
+  display: flex;
+  display: none; }
+
+.modal.active {
+  display: flex; }
+
+.modal__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.modal__body {
+  /* Sử dụng lệnh này ở con để căn giữa */
+  margin: auto;
+  border-radius: 5px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  animation: growth linear 0.2s; }
+
+.form-size__register {
+  width: 430px; }
+
+.form-size__login {
+  width: 430px;
+  height: 440px; }
+
+.select-input {
+  position: relative;
+  height: 38px;
+  min-width: 180px;
+  font-size: 1.4rem;
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.select-input::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 21px;
+  right: 0;
+  width: 100%;
+  height: 12px;
+  color: #ed1438; }
+
+.select-input:hover .select-input__list {
+  display: block; }
+
+.select-input__label {
+  font-size: 1.4rem;
+  padding-top: 3px; }
+
+.select-input__icon {
+  font-size: 1.4rem;
+  position: relative;
+  top: 1px; }
+
+.select-input__list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26px;
+  border-radius: 2px;
+  background-color: #fff;
+  padding-left: 0;
+  display: none;
+  animation: fadeIn linear 0.2s;
+  z-index: 1; }
+
+.select-input__list::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 100%;
+  height: 12px; }
+
+.select-input__item {
+  list-style: none;
+  padding: 6px 0 6px 14px; }
+
+.select-input__link {
+  position: relative;
+  right: 0;
+  display: block;
+  padding: 6px 0;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #444;
+  transition: right linear 0.2s; }
+
+.select-input__link:hover {
+  color: #ed1438; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.pagination-item {
+  margin: 0 12px;
+  list-style: none; }
+
+.pagination-item--active .pagination-item__link {
+  color: #fff;
+  background-color: #ed1438; }
+
+.pagination-item__link {
+  display: block;
+  height: 30px;
+  min-width: 40px;
+  line-height: 30px;
+  font-size: 1.6rem;
+  color: #939393;
+  text-align: center;
+  border-radius: 2px;
+  text-decoration: none; }

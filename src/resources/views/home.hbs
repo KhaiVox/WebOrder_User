@@ -1,0 +1,138 @@
+<div class='row sm-gutter app__content'>
+
+    <h1>{{title}}</h1>
+    <!-- Danh Mục -->
+    <div class='col l-2 m-0 c-0'>
+        <nav class='category'>
+            <h3 class='category__heading'>DANH MỤC</h3>
+            <ul class='category-list'>
+                <li class='category-item category-item--active'>
+                    <a href='#' class='category-item__link'>Tất cả</a>
+                </li>
+                <li class='category-item'>
+                    <a href='#' class='category-item__link'>Đồ uống</a>
+                </li>
+                <li class='category-item'>
+                    <a href='#' class='category-item__link'>Món ăn</a>
+                </li>
+                <li class='category-item'>
+                    <a href='#' class='category-item__link'>Ăn kèm</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sản Phẩm -->
+    <div class='col l-10 m-12 c-12'>
+        <div class='home-filter hide-on-mobile-tablet'>
+            <span class='home-filter__label'>Sắp xếp theo</span>
+            <button class='home-filter__btn btn btn--bc-white btn-primary'>Phổ biến</button>
+            <button class='home-filter__btn btn btn--bc-white'>Bán chạy</button>
+
+            <div class='select-input'>
+                <span class='select-input__label'>Giá</span>
+                <i class='select-input__icon fas fa-chevron-down'></i>
+                <!-- List Options -->
+                <ul class='select-input__list'>
+                    <li class='select-input__item'>
+                        <a href='' class='select-input__link'>Giá: Thấp đến Cao</a>
+                        <a href='' class='select-input__link'>Giá: Cao đến Thấp</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class='home-filter__page'>
+                <span class='home-filter__page-number'>
+                    <span class='home-filter__page-current'>1</span>/14
+                </span>
+
+                <div class='home-filter__page-control'>
+                    <a href='' class='home-filter__page-btn home-filter__page-btn--disable'>
+                        <i class='home-filter__page-icon fas fa-chevron-left'></i>
+                    </a>
+                    <a href='' class='home-filter__page-btn'>
+                        <i class='home-filter__page-icon fas fa-chevron-right'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class='mobile-category'>
+            <ul class='mobile-category__list'>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+                <li class='mobile-category__item'>
+                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class='home-product'>
+            <div class='row sm-gutter'>
+                <!-- Product Item-->
+                {{#each products}}
+                    <div class='product-item col l-3 m-4 c-6'>
+                        <a class='home-product-item' href='#'>
+                            <div class='home-product-item__img' style='background-image: url({{img}});'></div>
+                            <h4 class='home-product-item__name'>{{name}}</h4>
+                            <div class='home-product-item__price'>
+                                <span class='home-product-item__price-title'>Giá :</span>
+                                <span class='home-product-item__price-number'>{{price}}.000 đ</span>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <ul class='pagination home-product__pagination'>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>
+                    <i class='pagination-item__icon fas fa-chevron-left'></i>
+                </a>
+            </li>
+            <li class='pagination-item pagination-item--active'>
+                <a href='' class='pagination__link'>1</a>
+            </li>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>2</a>
+            </li>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>3</a>
+            </li>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>...</a>
+            </li>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>10</a>
+            </li>
+            <li class='pagination-item'>
+                <a href='' class='pagination__link'>
+                    <i class='pagination-item__icon fas fa-chevron-right'></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
