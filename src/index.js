@@ -47,7 +47,7 @@ app.set('views', path.join(__dirname, 'resources', 'views'))
 app.set('view engine', 'hbs')
 
 app.listen(port, () => {
-    console.log(`App listening on port http://localhost:${port}/home`)
+    console.log(`App listening on port http://localhost:${port}/user`)
 })
 
 app.get('/', (req, res) => {

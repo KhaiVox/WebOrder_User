@@ -33,41 +33,12 @@
   background-color: #ed1438; }
 
 /* Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  /* Đặt "flex" để căn giữa màn hình phần modal__body */
-  display: flex;
-  display: none; }
-
-.modal.active {
-  display: flex; }
-
-.modal__overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); }
-
-.modal__body {
-  /* Sử dụng lệnh này ở con để căn giữa */
-  margin: auto;
-  border-radius: 5px;
-  background-color: #fff;
-  position: relative;
-  z-index: 1;
-  animation: growth linear 0.2s; }
-
 .form-size__register {
-  width: 430px; }
+  min-width: 430px; }
 
 .form-size__login {
-  width: 430px;
-  height: 440px; }
+  width: 474px;
+  height: 412px; }
 
 .select-input {
   position: relative;

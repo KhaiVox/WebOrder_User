@@ -36,9 +36,11 @@ function handleLogin() {
     const username = document.querySelector('#username').value
     const password = document.querySelector('#password').value
 
+    console.log(form, username, password)
+
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        fetch('/user/login', {
+        fetch('/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username: username, password: password }),
             headers: { 'Content-Type': 'application/json' },
@@ -49,13 +51,14 @@ function handleLogin() {
             .then((data) => {
                 if (data.token) {
                     setCookie('token', data.token, 1)
-                    window.location.href = '/home'
+                    window.location.href = '/user'
                 } else {
-                    const text = document.querySelector('.text')
-                    text.classList.remove('hidden')
+                    alert('Tài khoản hoặc mật khẩu chưa chính xác !!')
+                    username = ''
+                    password = ''
                 }
             })
-            .catch((e) => console.log(e.message))
+        // .catch((e) => console.log(e.message))
     })
 }
 
@@ -69,14 +72,6 @@ function handleLogin() {
 //         },
 //     }).then((data) => {
 //         setCookie('token', data.token, 1)
-//         window.location.href = '/'
+//         window.location.href = '/user'
 //     })
 // }
-
-// Nhận sự kiện từ việc nhấn phím để thực hiện function handleLogin()
-document.onkeypress = function (myEvent) {
-    // console.log(myEvent.which);
-    if (myEvent.which == 13) {
-        handleLogin()
-    }
-}

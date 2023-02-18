@@ -7,16 +7,16 @@
             <h3 class='category__heading'>DANH MỤC</h3>
             <ul class='category-list'>
                 <li class='category-item category-item--active'>
-                    <a href='#' class='category-item__link'>Tất cả</a>
+                    <a href='/user' class='category-item__link'>Tất cả</a>
                 </li>
                 <li class='category-item'>
-                    <a href='#' class='category-item__link'>Đồ uống</a>
+                    <a href='/user/drink' class='category-item__link'>Đồ uống</a>
                 </li>
                 <li class='category-item'>
-                    <a href='#' class='category-item__link'>Món ăn</a>
+                    <a href='/user/food' class='category-item__link'>Món ăn</a>
                 </li>
                 <li class='category-item'>
-                    <a href='#' class='category-item__link'>Ăn kèm</a>
+                    <a href='/user/sidefood' class='category-item__link'>Ăn kèm</a>
                 </li>
             </ul>
         </nav>
@@ -24,40 +24,7 @@
 
     <!-- Sản Phẩm -->
     <div class='col l-10 m-12 c-12'>
-        <div class='home-filter hide-on-mobile-tablet'>
-            <span class='home-filter__label'>Sắp xếp theo</span>
-            <button class='home-filter__btn btn btn--bc-white btn-primary'>Phổ biến</button>
-            <button class='home-filter__btn btn btn--bc-white'>Bán chạy</button>
-
-            <div class='select-input'>
-                <span class='select-input__label'>Giá</span>
-                <i class='select-input__icon fas fa-chevron-down'></i>
-                <!-- List Options -->
-                <ul class='select-input__list'>
-                    <li class='select-input__item'>
-                        <a href='' class='select-input__link'>Giá: Thấp đến Cao</a>
-                        <a href='' class='select-input__link'>Giá: Cao đến Thấp</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class='home-filter__page'>
-                <span class='home-filter__page-number'>
-                    <span class='home-filter__page-current'>1</span>/14
-                </span>
-
-                <div class='home-filter__page-control'>
-                    <a href='' class='home-filter__page-btn home-filter__page-btn--disable'>
-                        <i class='home-filter__page-icon fas fa-chevron-left'></i>
-                    </a>
-                    <a href='' class='home-filter__page-btn'>
-                        <i class='home-filter__page-icon fas fa-chevron-right'></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <nav class='mobile-category'>
+        {{! <nav class='mobile-category'>
             <ul class='mobile-category__list'>
                 <li class='mobile-category__item'>
                     <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
@@ -87,12 +54,12 @@
                     <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
                 </li>
             </ul>
-        </nav>
+        </nav> }}
 
         <div class='home-product'>
             <div class='row sm-gutter'>
                 <!-- Product Item-->
-                {{#each products}}
+                {{#each foods}}
                     <div class='product-item col l-3 m-4 c-6'>
                         <a class='home-product-item' href='#'>
                             <div class='home-product-item__img' style='background-image: url({{img}});'></div>
@@ -100,6 +67,12 @@
                             <div class='home-product-item__price'>
                                 <span class='home-product-item__price-title'>Giá :</span>
                                 <span class='home-product-item__price-number'>{{price}}.000 đ</span>
+                            </div>
+                            <div class='home-product-btn'>
+                                <div class='btn btn-warning btn-add-cart'><span><ion-icon
+                                            name='cart-outline'
+                                        ></ion-icon></span>
+                                    Thêm vào giỏ</div>
                             </div>
                         </a>
                     </div>
@@ -134,5 +107,167 @@
                 </a>
             </li>
         </ul>
+    </div>
+</div>
+
+<!-- Modal Register -->
+<div class='modal fade' id='register' tabindex='-1' aria-hidden='true'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='auth-form form-size__register active'>
+                <div class='auth-form__container'>
+                    <div class='auth-form__header'>
+                        <h3 class='auth-form__heading'>Đăng Ký</h3>
+                    </div>
+
+                    <div class='auth-form__form'>
+                        <div class='auth-form__wrap'>
+                            <div class='auth-form__group'>
+                                <input type='text' class='auth-form__input' name='' placeholder='Họ & tên' />
+                            </div>
+                            <div class='auth-form__group'>
+                                <input type='text' class='auth-form__input' name='' placeholder='Địa chỉ' />
+                            </div>
+                        </div>
+                        <div class='auth-form__wrap'>
+                            <div class='auth-form__group'>
+                                <input type='text' class='auth-form__input' name='' placeholder='Số điện thoại' />
+                            </div>
+                            <div class='auth-form__group'>
+                                <input type='email' class='auth-form__input' name='' placeholder='Tên đăng nhập' />
+                            </div>
+                        </div>
+                        <div class='auth-form__wrap'>
+                            <div class='auth-form__group'>
+                                <input
+                                    type='password'
+                                    class='auth-form__input'
+                                    name=''
+                                    placeholder='Mật khẩu của bạn'
+                                />
+                            </div>
+                            <div class='auth-form__group'>
+                                <input
+                                    type='password'
+                                    class='auth-form__input'
+                                    name=''
+                                    placeholder='Nhập lại mật khẩu'
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='auth-form__controls'>
+                        <button class='btn btn-primary btn--active'>ĐĂNG KÝ</button>
+                    </div>
+
+                    <div class='line'>
+                        <p class='line-text'>HOẶC</p>
+                    </div>
+
+                    <div class='auth-form__socials'>
+                        <a href='' class='auth-form__socials--facebook btn btn--width-icon'>
+                            <i class='fab fa-facebook-f'></i>
+                            Facebook
+                        </a>
+                        <a href='' class='auth-form__socials--google btn btn--width-icon'>
+                            <i class='fab fa-google'></i>
+                            Google
+                        </a>
+                    </div>
+
+                    {{! <span class='auth-form__wonder'>
+                        <p class='auth-form__wonder-text'>Bạn đã có tài khoản?</p>
+                        <a href='' class='auth-form__wonder-login'>Đăng Nhập</a>
+                    </span> }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{! Modal Login }}
+<div class='modal fade' id='login' tabindex='-1' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-body'>
+                <div class='auth-form form-size__login'>
+                    <div class='auth-form__container'>
+                        <form class='form-action-login' method='POST' action='/auth/login'>
+                            <div class='auth-form__header'>
+                                <h3 class='auth-form__heading'>Đăng Nhập</h3>
+                            </div>
+
+                            <div class='auth-form__form'>
+                                <div class='auth-form__group'>
+                                    <i class='fas fa-user'></i>
+                                    <input
+                                        type='text'
+                                        class='auth-form__input'
+                                        id='username'
+                                        placeholder='Tên đăng nhập'
+                                    />
+                                </div>
+                                <div class='auth-form__group'>
+                                    <i class='fa fa-lock'></i>
+                                    <input
+                                        type='password'
+                                        class='auth-form__input'
+                                        id='password'
+                                        placeholder='Mật khẩu'
+                                    />
+                                </div>
+                            </div>
+                            <div class='form-more'>
+                                <label>
+                                    <div>
+                                        <input class='checkToggle' type='checkbox' onclick='showHidePassword()' />
+                                        Hiện mật khẩu
+                                    </div>
+                                </label>
+                                <p class='text-forget'>Quên mật khẩu ?</p>
+                            </div>
+
+                            <button type='submit' onclick='handleLogin()' class='btn btn-success btn-login'>Đăng Nhập</button>
+                            {{! <button type='submit' onclick='login()' class='btn btn-success btn-login'>Đăng Nhập</button> }}
+
+                            {{! <div class='auth-form__controls'>
+                            <button class='btn btn-primary btn--active' onclick='handleLogin()'>ĐĂNG NHẬP</button>
+                        </div>
+
+                        <div class='auth-form__aside'>
+                            <div class='auth-form__help'>
+                                <a href='' class='auth-form__help-link'>Quên mật khẩu?</a>
+                            </div>
+                        </div> }}
+                        </form>
+
+                        <div class='line'>
+                            <p class='line-text'>HOẶC</p>
+                        </div>
+
+                        <div class='auth-form__socials'>
+                            <a href='' class='auth-form__socials--facebook btn btn--width-icon'>
+                                <i class='fab fa-facebook-f'></i>Facebook
+                            </a>
+                            <a href='' class='auth-form__socials--google btn btn--width-icon'>
+                                <i class='fab fa-google'></i>
+                                Google
+                            </a>
+                            <a href='' class='auth-form__socials--apple btn btn--width-icon'>
+                                <i class='fab fa-apple'></i>
+                                Apple
+                            </a>
+                        </div>
+
+                        {{! <span class='auth-form__wonder'>
+                            <p class='auth-form__wonder-text'>Bạn mới biết đến Shopee?</p>
+                            <a href='' class='auth-form__wonder-login'>Đăng Ký</a>
+                        </span> }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

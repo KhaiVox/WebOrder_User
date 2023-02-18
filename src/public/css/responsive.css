@@ -59,7 +59,7 @@
   .header__search {
     position: fixed;
     z-index: 1;
-    top: 78px;
+    top: 84px;
     left: 0;
     right: 0;
     height: 46px;
@@ -93,6 +93,8 @@
     margin: 48px 54px 30px 12px; }
   .app__content {
     padding-top: 8px; }
+  .home-product {
+    margin-top: -16px; }
   .pagination-item {
     margin: 0 8px; }
   .pagination__link {

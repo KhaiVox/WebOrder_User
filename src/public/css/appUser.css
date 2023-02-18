@@ -304,6 +304,11 @@ body::-webkit-scrollbar-thumb {
 .auth-form__form {
   margin-top: 25px; }
 
+.auth-form__wrap {
+  display: flex; }
+  .auth-form__wrap .auth-form__group:last-child {
+    margin-left: 20px; }
+
 .auth-form__group {
   display: flex;
   padding: 0 10px;
@@ -317,15 +322,51 @@ body::-webkit-scrollbar-thumb {
 .auth-form__group:focus {
   border-color: #666; }
 
-.auth-form__group .icon-eye {
-  cursor: pointer; }
-
 .auth-form__input {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
+  font-size: 1.6rem;
   border: none;
   /* Bỏ viền sáng xung quanh text khi nhấn vào */
   outline: none; }
+
+.form-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .form-more label {
+    font-size: 1.5rem;
+    cursor: pointer; }
+  .form-more input {
+    margin-right: 2px;
+    zoom: 1.2;
+    cursor: pointer;
+    position: relative;
+    top: 2px; }
+
+.text {
+  color: #eb1d1d;
+  font-size: 1.4rem;
+  text-shadow: 0px 0px 1px #dd090991; }
+
+.text-forget {
+  font-size: 1.5rem;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: 0.2s; }
+  .text-forget:hover {
+    color: #1c6758; }
+
+.btn-login {
+  width: 100%;
+  height: 42px;
+  font-weight: 700;
+  margin-top: 22px;
+  color: white;
+  background-color: #1c6758; }
+  .btn-login:hover {
+    color: white;
+    background-color: #0e483d; }
 
 /* Button Register */
 .btn--active {
@@ -369,6 +410,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between; }
 
 .btn--width-icon {
+  width: 180px;
   text-decoration: none;
   color: #fff; }
 
@@ -384,31 +426,11 @@ body::-webkit-scrollbar-thumb {
 .auth-form__socials--google {
   background-color: #4285f4; }
 
-.auth-form__socials--apple {
-  background-color: #000; }
-
 .auth-form__socials--facebook:hover,
-.auth-form__socials--google:hover,
-.auth-form__socials--apple:hover {
+.auth-form__socials--google:hover {
   opacity: 0.9; }
 
 /* Thanh điều khoản */
-.auth-form__aside {
-  margin-top: 15px; }
-
-.auth-form__policy-text {
-  padding: 6px 12px;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.6rem; }
-
-.auth-form__policy-text span {
-  display: block; }
-
-.auth-form__text-link {
-  color: #ed1438;
-  text-decoration: none; }
-
 .auth-form__wonder {
   display: flex;
   align-items: center;
@@ -460,7 +482,6 @@ body::-webkit-scrollbar-thumb {
   display: flex; }
 
 .header__logo-img {
-  background: url("https://cf.shopee.vn/file/d734f6291f072bb855371432da462d65") center/contain no-repeat;
   width: 236px;
   height: 80px; }
 
@@ -814,13 +835,6 @@ body::-webkit-scrollbar-thumb {
 .header__sort-item--active .header__sort-link {
   color: #ed1438; }
 
-.header__sort-icon {
-  margin-left: 4px;
-  font-size: 1.6rem;
-  color: #444;
-  position: relative;
-  top: 1px; }
-
 /* App Container */
 .app__container {
   background-color: #f5f5f5;
@@ -940,77 +954,12 @@ body::-webkit-scrollbar-thumb {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent; }
 
-/* Home Sort + Filter */
-.home-filter {
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.04); }
-
-.home-filter__label {
-  color: #444;
-  margin-right: 16px;
-  font-size: 1.4rem; }
-
-.home-filter__btn {
-  margin-right: 10px;
-  background-color: #fff; }
-
-.select-input__list {
-  z-index: 1; }
-
-.home-filter__page {
-  display: flex;
-  margin-left: auto;
-  align-items: center; }
-
-.home-filter__page-number {
-  font-weight: 500;
-  font-size: 1.4rem;
-  margin-right: 20px;
-  color: #444; }
-
-.home-filter__page-current {
-  color: #ed1438; }
-
-.home-filter__page-control {
-  display: flex;
-  width: 72px;
-  height: 36px;
-  border-radius: 2px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  overflow: hidden; }
-
-.home-filter__page-btn {
-  flex: 1;
-  display: flex;
-  font-size: 1.4rem;
-  text-decoration: none;
-  color: #444; }
-
-.home-filter__page-btn--disable {
-  cursor: default;
-  background-color: #f9f9f9; }
-
-.home-filter__page-btn--disable .home-filter__page-icon {
-  color: #ccc; }
-
-.home-filter__page-btn:first-child {
-  border-right: 1px solid #ddd; }
-
-.home-filter__page-icon {
-  margin: auto;
-  font-size: 1.4rem;
-  color: #444; }
-
 /* Product Item */
 .product-item {
   margin: 0 !important; }
 
 .home-product {
-  margin-bottom: 12px; }
+  margin-top: -10px; }
 
 .home-product-item {
   position: relative;
@@ -1068,17 +1017,19 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.6rem;
   color: #ed1438; }
 
-.home-product-item__sale-off-percent {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.8rem;
-  color: #ed1438; }
+.home-product-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
-.home-product-item__sale-off-label {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.4rem;
-  color: #fff; }
+.btn-add-cart {
+  margin: 12px 5px;
+  width: 90%; }
+  .btn-add-cart ion-icon {
+    position: relative;
+    top: -1px;
+    margin-right: 8px;
+    font-size: 1.8rem; }
 
 /* Pagination */
 .pagination {
@@ -1214,41 +1165,12 @@ body::-webkit-scrollbar-thumb {
   background-color: #ed1438; }
 
 /* Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  /* Đặt "flex" để căn giữa màn hình phần modal__body */
-  display: flex;
-  display: none; }
-
-.modal.active {
-  display: flex; }
-
-.modal__overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); }
-
-.modal__body {
-  /* Sử dụng lệnh này ở con để căn giữa */
-  margin: auto;
-  border-radius: 5px;
-  background-color: #fff;
-  position: relative;
-  z-index: 1;
-  animation: growth linear 0.2s; }
-
 .form-size__register {
-  width: 430px; }
+  min-width: 430px; }
 
 .form-size__login {
-  width: 430px;
-  height: 440px; }
+  width: 474px;
+  height: 412px; }
 
 .select-input {
   position: relative;
@@ -1791,7 +1713,7 @@ body::-webkit-scrollbar-thumb {
   .header__search {
     position: fixed;
     z-index: 1;
-    top: 78px;
+    top: 84px;
     left: 0;
     right: 0;
     height: 46px;
@@ -1825,6 +1747,8 @@ body::-webkit-scrollbar-thumb {
     margin: 48px 54px 30px 12px; }
   .app__content {
     padding-top: 8px; }
+  .home-product {
+    margin-top: -16px; }
   .pagination-item {
     margin: 0 8px; }
   .pagination__link {

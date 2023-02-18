@@ -7,7 +7,7 @@
         </ul>
 
         <ul class='header__navbar-list'>
-            <li class='header__navbar-item header__navbar-item--has-notify'>
+            {{! <li class='header__navbar-item header__navbar-item--has-notify'>
                 <a href='' class='header__navbar-item-link'>
                     <i class='header__navbar-icon far fa-bell'></i>
                     Thông báo
@@ -78,10 +78,9 @@
                         <a href='https://shopee.vn/shop/234984535/search' class='header__notify-footer-btn'>Xem tất cả</a>
                     </footer>
                 </div>
-            </li>
-            <!-- <li class="header__navbar-item header__navbar-item--seperate"><strong>Đăng Ký</strong></li>
-                        <li class="header__navbar-item"><strong>Đăng Nhập</strong></li> -->
-            <li class='header__navbar-item header__navbar-user'>
+            </li> }}
+
+            {{! <li class='header__navbar-item header__navbar-user'>
                 <img
                     src='https://marketingweek.imgix.net/content/uploads/2011/05/angry-birds-holiday_news.jpg?auto=compress,format&q=60&w=333&h=333'
                     alt=''
@@ -100,7 +99,14 @@
                         <a href=''>Đăng xuất</a>
                     </li>
                 </ul>
-            </li>
+            </li> }}
+            <li
+                class='header__navbar-item header__navbar-item--seperate'
+                data-bs-toggle='modal'
+                data-bs-target='#register'
+            >
+                <strong>Đăng Ký</strong></li>
+            <li class='header__navbar-item' data-bs-toggle='modal' data-bs-target='#login'><strong>Đăng Nhập</strong></li>
         </ul>
     </nav>
 
@@ -112,8 +118,8 @@
         <div class='header__logo hide-on-tablet'>
             <!-- Nhấn logo đưa về trang chủ -->
             <a href='/user' class='header__logo-link'>
-                <div class='header__logo-img'>
-                </div>
+                <img src="https://cf.shopee.vn/file/d734f6291f072bb855371432da462d65" class='header__logo-img'>
+                </img>
             </a>
         </div>
 
@@ -253,20 +259,19 @@
         </div>
     </div>
 </div>
+
 <!-- Header Sort Bar -->
 <ul class='header__sort-bar'>
-    <li class='header__sort-item'>
-        <a href='' class='header__sort-link'>Liên quan</a>
-    </li>
     <li class='header__sort-item header__sort-item--active'>
-        <a href='' class='header__sort-link'>Mới nhất</a>
+        <a href='/user' class='header__sort-link'>Tất cả</a>
     </li>
     <li class='header__sort-item'>
-        <a href='' class='header__sort-link'>Bán chạy</a>
+        <a href='/user/drink' class='header__sort-link'>Đồ uống</a>
     </li>
     <li class='header__sort-item'>
-        <a href='' class='header__sort-link'>Giá
-            <i class='header__sort-icon fas fa-sort'></i>
-        </a>
+        <a href='/user/food' class='header__sort-link'>Món ăn</a>
+    </li>
+    <li class='header__sort-item'>
+        <a href='/user/sidefood' class='header__sort-link'>Ăn kèm</a>
     </li>
 </ul>
