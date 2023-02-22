@@ -34,6 +34,16 @@ class AuthController {
                 res.json('Đã xảy ra lỗi!')
             })
     }
+
+    // [GET] /auth/login
+    loginUI(req, res, next) {
+        res.render('login')
+    }
+
+    // [GET] /auth/register
+    registerUI(req, res, next) {
+        res.render('register')
+    }
 }
 
 module.exports = new AuthController()

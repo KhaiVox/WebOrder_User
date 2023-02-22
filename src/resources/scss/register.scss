@@ -1,0 +1,68 @@
+@import 'variables';
+.container-wrap__login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-mode .content-left {
+    border-top-left-radius: $br5;
+    border-bottom-left-radius: $br5;
+    background-color: white;
+    width: 60%;
+}
+
+.register-mode .content-right {
+    background-color: $primary;
+    border-top-right-radius: $br5;
+    border-bottom-right-radius: $br5;
+    width: 40%;
+}
+
+.register-mode .panel-content img {
+    position: relative;
+    top: -54px;
+}
+
+.form-action-register .title {
+    margin-left: 52px;
+}
+
+.register-mode .btn-pass a:after {
+    position: absolute;
+    content: 'Đã có tài khoản ?';
+    height: 40px;
+    width: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.register-mode .btn-pass a:before {
+    position: absolute;
+    content: 'Đăng Nhập';
+    height: 40px;
+    width: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.input-field--wrap {
+    display: flex;
+    align-items: center;
+    padding: 2px 12px;
+}
+
+.register-mode .input-field {
+    margin-right: 12px;
+}
+
+.btn-register {
+    width: 94%;
+    margin-left: 12px;
+}

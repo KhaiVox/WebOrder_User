@@ -1,0 +1,58 @@
+<div class='container-wrap__login register-mode'>
+    <div class='form-container__login'>
+        <div class='content-left w-60'>
+            <form class='form-action-login form-action-register' method='POST'>
+                <h2 class='title'>Đăng Ký</h2>
+
+                <div class="input-field--wrap">
+                    <div class='input-field'>
+                        <input required type='text' placeholder='Họ tên' id="fullname-register" />
+                        <ion-icon name="accessibility"></ion-icon>
+                    </div>
+                    <div class='input-field'>
+                        <input required type='text' placeholder='Số điện thoại' id="phone-register" />
+                        <ion-icon name="call"></ion-icon>
+                    </div>
+                </div>
+                <div class="input-field--wrap">
+                    <div class='input-field'>
+                        <input required type='text' placeholder='Địa chỉ' id="address-register" />
+                        <ion-icon name="location"></ion-icon>
+                    </div>
+                    <div class='input-field'>
+                        <input required type='text' placeholder='Tên đăng nhập' id="username-register" />
+                        <ion-icon name='person'></ion-icon>
+                    </div>
+                    </div>
+                <div class="input-field--wrap">
+                    <div class='input-field'>
+                        <input required type='password' placeholder='Mật khẩu' id="pass-register" />
+                        <ion-icon name='lock-closed'></ion-icon>
+                    </div>
+                    <div class='input-field'>
+                        <input required type='password' placeholder='Nhập lại mật khẩu' id="repeat-password" />
+                        <ion-icon name='lock-closed'></ion-icon>
+                    </div>
+                </div>
+                <div class='form-more'>
+                    <p class="text text-notify-user hidden"> User này đã tồn tại !
+                </div> 
+                
+                <button type='submit' class='btn btn-login btn-register' onclick="handleRegister()">Đăng Ký</button>
+            </form>
+        </div>
+        <div class='content-right w-40'>
+            <div class='panel-content'>
+                <img src='/img/logo.png' alt='' />
+                <div class='btn-pass'><a href='/auth/login'></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const Header = document.querySelector('.header') ; 
+    const appContainer = document.querySelector('.app__container') ;
+    Header.style.visibility = 'hidden'; 
+    appContainer.style.marginTop = '0';
+</script>

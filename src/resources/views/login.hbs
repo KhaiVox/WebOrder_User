@@ -1,0 +1,56 @@
+<div class='container-wrap__login'>
+    <div class='form-container__login'>
+        <div class='content-left'>
+            <div class='panel-content'>
+                <img src='/img/logo.png' alt='' />
+                <div class='btn-pass'><a href='/auth/register'></a></div>
+            </div>
+        </div>
+        <div class='content-right'>
+            <form class='form-action-login' method='POST'>
+                <h2 class='title'>Đăng Nhập</h2>
+                <div class='input-field'>
+                    <input required type='text' placeholder='Tên đăng nhập' name='username' id='username' />
+                    <ion-icon name='person'></ion-icon>
+                </div>
+                <div class='input-field'>
+                    <ion-icon name='lock-closed'></ion-icon>
+                    <input
+                        class='input-password'
+                        required
+                        type='password'
+                        placeholder='Mật khẩu'
+                        name='password'
+                        id='password'
+                    />
+                </div>
+                <div class='form-more'>
+                    <p class='text hidden'>
+                        <span style='position: relative; top: 2px;'><ion-icon name='warning-outline'></ion-icon></span>
+                        Tài khoản hoặc mật khẩu chưa chính xác !
+                    </p>
+                </div>
+                <div class='form-more'>
+                    <label>
+                        <div>
+                            <input class='checkToggle' type='checkbox' onclick='showHidePassword()' />
+                            Hiện mật khẩu
+                        </div>
+                    </label>
+                    <a href='/forgotPass'>
+                        <p class='text-forget'>Quên mật khẩu ?</p>
+                    </a>
+                </div>
+
+                <button type='submit' class='btn btn-success btn-login' onclick='handleLogin()'>Đăng Nhập</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const Header = document.querySelector('.header') ; 
+    const appContainer = document.querySelector('.app__container') ;
+    Header.style.visibility = 'hidden'; 
+    appContainer.style.marginTop = '0';
+</script>

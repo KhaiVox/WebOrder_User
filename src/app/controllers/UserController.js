@@ -22,8 +22,7 @@ class UserController {
         //     if (token) {
         //         next()
         //     } else {
-        //         res.render('home')
-        //         // res.json('Moi ban dang nhap')
+        //         res.render('login')
         //     }
         //     Food.find({})
         //         .then((foods) =>
