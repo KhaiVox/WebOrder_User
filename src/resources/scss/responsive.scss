@@ -161,4 +161,51 @@
         display: block;
         padding: 10px 8px;
     }
+
+    // Form Login
+    .container-wrap__login {
+        align-items: flex-start;
+        height: 75vh;
+    }
+    .content-left.mobile-login {
+        display: none;
+    }
+    .content-right.mobile-login {
+        width: 100%;
+    }
+    .form-action-login {
+        padding: 0 20px;
+        width: 365px;
+    }
+    .form-container__login {
+        display: block;
+        background-color: white;
+    }
+    .form-action-login .title {
+        width: 100%;
+    }
+
+    // Form Register
+    .register-mode .content-left {
+        width: 100%;
+    }
+    .register-mode .content-right {
+        display: none !important;
+    }
+    .input-field--wrap {
+        display: block;
+    }
+    .register-mode .input-field {
+        margin: 0;
+    }
+    .form-action-register .title {
+        margin-left: -10px;
+        margin-bottom: 22px;
+    }
+
+    // Scroll Top
+    .scroll-top {
+        right: 20px;
+        bottom: 20px;
+    }
 }

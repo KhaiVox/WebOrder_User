@@ -15,8 +15,7 @@
 .register-mode .content-right {
   background-color: #1c6758;
   border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  width: 40%; }
+  border-bottom-right-radius: 5px; }
 
 .register-mode .panel-content img {
   position: relative;

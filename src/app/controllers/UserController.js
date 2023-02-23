@@ -15,32 +15,31 @@ class UserController {
         //     })
         //     .catch(next)
 
-        // try {
-        //     // kiểm tra thấy nếu token có giá trị sẽ cho phép truy cập vào trang HOME
-        //     // sai sẽ trả về trang LOGIN
-        //     var token = req.cookies.token
-        //     if (token) {
-        //         next()
-        //     } else {
-        //         res.render('login')
-        //     }
-        //     Food.find({})
-        //         .then((foods) =>
-        //             res.render('home', {
-        //                 foods: mutipleMongooseToObject(foods),
-        //             }),
-        //         )
-        //         .catch(next)
-        // } catch (error) {
-        // }
+        try {
+            // kiểm tra thấy nếu token có giá trị sẽ cho phép truy cập vào trang HOME
+            // sai sẽ trả về trang LOGIN
+            var token = req.cookies.token
+            if (token) {
+                Food.find({})
+                    .then((foods) =>
+                        res.render('home', {
+                            foods: mutipleMongooseToObject(foods),
+                        }),
+                    )
+                    .catch(next)
+            } else {
+                res.render('login')
+            }
+        } catch (error) {
+        }
 
-        Food.find({})
-            .then((foods) =>
-                res.render('home', {
-                    foods: mutipleMongooseToObject(foods),
-                }),
-            )
-            .catch(next)
+        // Food.find({})
+        //     .then((foods) =>
+        //         res.render('home', {
+        //             foods: mutipleMongooseToObject(foods),
+        //         }),
+        //     )
+        //     .catch(next)
     }
 
     // [GET] /user/filter

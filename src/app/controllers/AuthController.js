@@ -1,6 +1,11 @@
 const AccountModel = require('../models/account')
 
 class AuthController {
+    // [GET] /auth/login
+    loginUI(req, res, next) {
+        res.render('login')
+    }
+
     // [POST] /auth/login
     login(req, res, next) {
         // res.render('home')
@@ -14,7 +19,7 @@ class AuthController {
         })
             .then((data) => {
                 if (data) {
-                    let token = password
+                    let token = data._id
                     //  jwt.sign(
                     //     {
                     //         _id: data._id,
@@ -35,14 +40,43 @@ class AuthController {
             })
     }
 
-    // [GET] /auth/login
-    loginUI(req, res, next) {
-        res.render('login')
-    }
-
     // [GET] /auth/register
     registerUI(req, res, next) {
         res.render('register')
+    }
+
+    // [POST] /auth/register
+    register(req, res, next) {
+        var username = req.body.username
+        var password = req.body.password
+        var phone = req.body.phone
+        var address = req.body.address
+        var fullname = req.body.fullname
+
+        // res.json(req.body)
+
+        AccountModel.findOne({
+            username: username,
+        })
+            .then((data) => {
+                if (data) {
+                    res.json('User này đã tồn tại!')
+                } else {
+                    AccountModel.create({
+                        username: username,
+                        password: password,
+                        phone: phone,
+                        address: address,
+                        fullname: fullname,
+                        deleted: false
+                    }).then((data) => {
+                        res.json('Tạo tài khoản thành công!')
+                    })
+                }
+            })
+            .catch((err) => {
+                res.status(500).json('Tạo tài khoản thất bại!')
+            })
     }
 }
 

@@ -49,6 +49,14 @@ body::-webkit-scrollbar-thumb {
 .active {
 }
 
+.w-40 {
+    width: 40%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
 // Button
 .btn {
     transition: 0.2s;
@@ -70,11 +78,46 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+/* Scroll Top */
+.scroll-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    background-color: $primary;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: scale(1.2);
+}
+
+.scroll-top-icon {
+    font-size: 35px;
+    color: var(--white-color);
+}
+
 // Content
 @import 'home';
 @import 'base';
 @import 'grid';
-@import 'responsive';
 @import 'login';
 @import 'register';
+@import 'responsive';
 

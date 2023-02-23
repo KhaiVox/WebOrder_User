@@ -38,6 +38,13 @@
     </head>
     <body>
         <div class='app'>
+            <!-- Scroll Top -->
+            <div onClick="backToTop()" class="scroll-top">
+                {{!-- <i class="scroll-top-icon fa-solid fa-angle-left"></i> --}}
+                <span class="scroll-top-icon">
+                    <ion-icon name="chevron-up-outline"></ion-icon>
+                </span>
+            </div>
             <div class="header">
                 {{> header}}
             </div>
@@ -52,8 +59,13 @@
                 {{> footer}}
             </div> --}}
 
+            <button class="btn btn-primary">
+                <a href="/deleteCookie">Log out</a>
+            </button>
+
             {{! Link JS }}
             <script src='/js/app.js'></script>
             <script src='/js/login.js'></script>
+            <script src='/js/register.js'></script>
     </body>
 </html>

@@ -36,7 +36,7 @@ function handleLogin() {
     const username = document.querySelector('#username').value
     const password = document.querySelector('#password').value
 
-    console.log(form, username, password)
+    // console.log(form, username, password)
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -54,24 +54,9 @@ function handleLogin() {
                     window.location.href = '/user'
                 } else {
                     alert('Tài khoản hoặc mật khẩu chưa chính xác !!')
-                    username = ''
-                    password = ''
                 }
             })
         // .catch((e) => console.log(e.message))
     })
 }
 
-// function login() {
-//     $.ajax({
-//         url: '/user/login',
-//         method: 'POST',
-//         data: {
-//             username: $('#username').val(),
-//             password: $('#password').val(),
-//         },
-//     }).then((data) => {
-//         setCookie('token', data.token, 1)
-//         window.location.href = '/user'
-//     })
-// }
