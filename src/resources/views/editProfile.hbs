@@ -1,0 +1,47 @@
+<div class='container-right'>
+    <div class='create edit-food'>
+        <div class="create-left">
+            <div class='create-item'>
+                <img class="food-img" src={{user.avatar}} alt="">
+            </div>
+        </div>
+        <div class="create-right">
+            <div class='create-header'>Hồ Sơ Của Tôi</div>
+            <form method='POST' action='/foods/{{user._id}}?_method=PUT'>
+                <div class='create-item'>
+                    <div class='create-title'>Tên của bạn :</div>
+                    <input type='text' class='create-input' name='fullname' id='fullname' value='{{user.fullname}}' />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Tên đăng nhập :</div>
+                    <input type='text' class='create-input' name='username' id='username' value='{{user.username}}' />
+                </div>
+                {{!-- <div class='create-item'>
+                    <div class='create-title'>Loại :</div>
+                    <select id='type' name='type' class='create-input' required>
+                        <option class="input-selected">{{user.type}}</option>
+                        <option class="food" name='food'>food</option>
+                        <option class="drink" name='drink'>drink</option>
+                        <option class="sidefood" name='sidefood'>sidefood</option>
+                    </select>
+                </div> --}}
+                <div class='create-item'>
+                    <div class='create-title'>Số điện thoại :</div>
+                    <input type='text' class='create-input' name='phone' id='phone' value='{{user.phone}}' />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Địa chỉ :</div>
+                    <input type='text' class='create-input' name='address' id='address' value='{{user.address}}' />
+                </div>
+                
+                <div class='create-button'>
+                    <a href='/user'>
+                        <button class='btn btn-quit'>↩ Quay lại</button>
+                    </a>
+                    <button class='btn btn-confirm'>Lưu thông tin</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

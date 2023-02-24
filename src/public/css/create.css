@@ -1,0 +1,96 @@
+.create {
+  width: 500px;
+  padding: 32px 50px;
+  border-radius: 10px;
+  display: flex; }
+
+.create-left img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+  top: 18px; }
+
+.create-right {
+  margin-left: 120px; }
+
+.edit-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.des-img {
+  width: 400px;
+  height: auto;
+  margin-right: 90px; }
+
+.create-header {
+  font-size: 3.2rem;
+  font-weight: 500;
+  margin-bottom: 42px;
+  color: #1c6758;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Mitr', sans-serif;
+  text-shadow: 1px 1px 2px #1c675830; }
+
+.create-item {
+  color: #000;
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; }
+
+.create-title {
+  width: 155px;
+  text-align: start; }
+
+.create-img {
+  width: 200px;
+  height: auto;
+  margin-right: 52px; }
+
+.create-input {
+  width: 300px;
+  padding: 5px 10px;
+  border: 1px solid #bcbcbc; }
+
+.create-icon {
+  color: #ccc;
+  font-size: 2.8rem;
+  transition: 0.4s; }
+
+/* Create Button */
+.create-button {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-content: space-between; }
+
+.btn-quit:hover {
+  color: #1c6758; }
+
+.btn-quit {
+  margin-left: -18px;
+  font-size: 1.7rem;
+  font-weight: 400; }
+
+.btn-quit ion-icon {
+  position: relative;
+  top: -2px;
+  margin-right: 5px; }
+
+.btn-confirm:hover {
+  color: white;
+  background-color: #f6412e; }
+
+.btn-confirm {
+  height: 38px;
+  width: 200px;
+  font-size: 1.7rem;
+  float: right;
+  color: white;
+  background-color: #f6412e; }

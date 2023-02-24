@@ -144,4 +144,23 @@
     margin-bottom: 22px; }
   .scroll-top {
     right: 20px;
-    bottom: 20px; } }
+    bottom: 20px; }
+  .header__sort-bar {
+    display: none; }
+  .app__container {
+    margin-top: 84px; }
+  .create-left {
+    display: none; }
+  .create-right,
+  .create-button {
+    margin-left: -20px; }
+  .create-item {
+    display: block; }
+  .create-header {
+    margin-bottom: 18px; }
+  .create-title {
+    margin-bottom: 5px; }
+  .btn-quit {
+    margin-left: 0; }
+  .btn-confirm {
+    width: 180px; } }

@@ -82,15 +82,15 @@
 
             <li class='header__navbar-item header__navbar-user'>
                 <img
-                    src='https://marketingweek.imgix.net/content/uploads/2011/05/angry-birds-holiday_news.jpg?auto=compress,format&q=60&w=333&h=333'
+                    src={{user.avatar}}
                     alt=''
                     class='header__navbar-user-img'
                 />
-                <span class='header__navbar-user-name'>Khải Võ</span>
+                <span class='header__navbar-user-name'>{{user.fullname}}</span>
 
                 <ul class='header__navbar-user-menu'>
                     <li class='header__navbar-user-item'>
-                        <a href=''>Tài khoản của tôi</a>
+                        <a href='user/editProfile'>Tài khoản của tôi</a>
                     </li>
                     <li class='header__navbar-user-item'>
                         <a href=''>Đơn mua</a>

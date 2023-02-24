@@ -101,11 +101,9 @@
     height: 12px;
 }
 
-.header__navbar-user-item {
-    padding: 9px;
-}
-
 .header__navbar-user-item a {
+    padding: 8px;
+    padding-left: 12px;
     color: $text-color;
     text-decoration: none;
     display: block;

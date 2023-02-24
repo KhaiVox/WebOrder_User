@@ -36,8 +36,6 @@ function handleLogin() {
     const username = document.querySelector('#username').value
     const password = document.querySelector('#password').value
 
-    // console.log(form, username, password)
-
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         fetch('/auth/login', {

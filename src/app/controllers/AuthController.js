@@ -1,4 +1,4 @@
-const AccountModel = require('../models/account')
+const Account = require('../models/account')
 
 class AuthController {
     // [GET] /auth/login
@@ -8,12 +8,10 @@ class AuthController {
 
     // [POST] /auth/login
     login(req, res, next) {
-        // res.render('home')
-        // res.json('thanh cong')
         var username = req.body.username
         var password = req.body.password
 
-        AccountModel.findOne({
+        Account.findOne({
             username: username,
             password: password,
         })
@@ -44,7 +42,7 @@ class AuthController {
     registerUI(req, res, next) {
         res.render('register')
     }
-
+    
     // [POST] /auth/register
     register(req, res, next) {
         var username = req.body.username
@@ -53,16 +51,14 @@ class AuthController {
         var address = req.body.address
         var fullname = req.body.fullname
 
-        // res.json(req.body)
-
-        AccountModel.findOne({
+        Account.findOne({
             username: username,
         })
             .then((data) => {
                 if (data) {
                     res.json('User này đã tồn tại!')
                 } else {
-                    AccountModel.create({
+                    Account.create({
                         username: username,
                         password: password,
                         phone: phone,

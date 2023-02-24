@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     color: $white;
-    background-color: $primary;
+    background-color: $primary-color;
     border-radius: 50%;
     transition: 0.3s;
     cursor: pointer;
@@ -119,5 +119,6 @@ body::-webkit-scrollbar-thumb {
 @import 'grid';
 @import 'login';
 @import 'register';
+@import 'create';
 @import 'responsive';
 
