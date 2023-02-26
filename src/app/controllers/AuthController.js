@@ -42,7 +42,7 @@ class AuthController {
     registerUI(req, res, next) {
         res.render('register')
     }
-    
+
     // [POST] /auth/register
     register(req, res, next) {
         var username = req.body.username
@@ -64,7 +64,7 @@ class AuthController {
                         phone: phone,
                         address: address,
                         fullname: fullname,
-                        deleted: false
+                        deleted: false,
                     }).then((data) => {
                         res.json('Tạo tài khoản thành công!')
                     })

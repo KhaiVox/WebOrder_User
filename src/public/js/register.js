@@ -13,18 +13,23 @@ function handleRegister() {
         e.preventDefault()
         if (password === passwordRepeat) {
             fetch('/auth/register', {
-                    method: 'POST',
-                    body: JSON.stringify({ username: username, password: password , fullname: fullName, address: address, phone: phone}),
-                    headers: { 'Content-Type': 'application/json' },
-                })
+                method: 'POST',
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    fullname: fullName,
+                    address: address,
+                    phone: phone,
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            })
                 .then((data) => {
                     return data.json()
                 })
                 .then((data) => {
                     if (data == 'User này đã tồn tại!') {
                         textNotifyUser.classList.remove('hidden')
-                    }
-                    else {
+                    } else {
                         window.location.href = '/auth/login'
                     }
                 })

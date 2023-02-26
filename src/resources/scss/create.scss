@@ -7,11 +7,15 @@
 }
 
 .create-left img {
-    width: 400px;
+    width: 200px;
     height: auto;
     object-fit: cover;
     position: relative;
     top: 18px;
+}
+
+.btn-edit-avatar {
+    margin-top: 32px;
 }
 
 .create-right {
@@ -74,19 +78,17 @@
     transition: 0.4s;
 }
 
-
 /* Create Button */
 
 .create-button {
     margin-top: 36px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     justify-content: space-between;
 }
 
 .btn-quit:hover {
-    color: $primary;
+    color: $primary-color;
 }
 
 .btn-quit {

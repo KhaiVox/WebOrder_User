@@ -12,7 +12,7 @@
 // Scroll Top
 // set vị trí ban đầu cho vị trí scroll
 var lastScrollTop = 500
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     var scroll = document.querySelector('.scroll-top')
     scroll.classList.toggle('active', window.scrollY > 800)
 

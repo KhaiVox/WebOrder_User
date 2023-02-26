@@ -1,4 +1,4 @@
-const userRouter = require('./home')
+const userRouter = require('./site')
 const authRouter = require('./auth')
 
 // nếu các tuyến đường bên trên ko match -> chạy tuyến đường bên dưới cùng

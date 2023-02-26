@@ -4,29 +4,26 @@ const Account = require('../models/account')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
-
-
 class UserController {
     // [GET] /user
     home(req, res, next) {
-        try {     
+        try {
             // kiểm tra thấy nếu token có giá trị sẽ cho phép truy cập vào trang HOME
             // sai sẽ trả về trang LOGIN
             var token = req.cookies.token
             if (token) {
-                Promise.all([Food.find(), Account.findOne({_id: token})])
+                Promise.all([Food.find(), Account.findOne({ _id: token })])
                     .then(([foods, user]) => {
                         res.render('home', {
-                            foods: mutipleMongooseToObject(foods), 
-                            user: mongooseToObject(user), 
+                            foods: mutipleMongooseToObject(foods),
+                            user: mongooseToObject(user),
                         })
                     })
                     .catch(next)
             } else {
                 res.render('login')
             }
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 
     // [GET] /user/filter
@@ -52,20 +49,26 @@ class UserController {
 
     // [GET] /user/register
     editProfile(req, res, next) {
-        try {     
+        try {
             var token = req.cookies.token
             if (token) {
                 var token = req.cookies.token
                 Account.findOne({ _id: token })
                     .then((user) => {
-                        res.render('editProfile', { user: mongooseToObject(user)})
+                        res.render('editProfile', { user: mongooseToObject(user) })
                     })
                     .catch(next)
             } else {
                 res.render('login')
             }
-        } catch (error) {
-        }
+        } catch (error) {}
+    }
+
+    // [PUT] /user/editProfile/:id
+    update(req, res, next) {
+        Account.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/user/editProfile'))
+            .catch(next)
     }
 }
 

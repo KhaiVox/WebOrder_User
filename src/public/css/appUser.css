@@ -11,7 +11,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Nunito', sans-serif; }
+  font-family: 'Nunito', sans-serif;
+  background-color: #f5f5f5; }
 
 ul {
   margin: 0;
@@ -704,8 +705,8 @@ body::-webkit-scrollbar-thumb {
 
 /* App Container */
 .app__container {
-  background-color: #f5f5f5;
-  margin-top: 130px; }
+  margin-top: 130px;
+  margin-bottom: 32px; }
 
 .app__content {
   padding-top: 24px; }
@@ -1771,11 +1772,14 @@ body::-webkit-scrollbar-thumb {
   display: flex; }
 
 .create-left img {
-  width: 400px;
+  width: 200px;
   height: auto;
   object-fit: cover;
   position: relative;
   top: 18px; }
+
+.btn-edit-avatar {
+  margin-top: 32px; }
 
 .create-right {
   margin-left: 120px; }
@@ -1833,11 +1837,10 @@ body::-webkit-scrollbar-thumb {
   margin-top: 36px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   justify-content: space-between; }
 
 .btn-quit:hover {
-  color: #1c6758; }
+  color: #f6412e; }
 
 .btn-quit {
   margin-left: -18px;
@@ -2007,10 +2010,6 @@ body::-webkit-scrollbar-thumb {
   .scroll-top {
     right: 20px;
     bottom: 20px; }
-  .header__sort-bar {
-    display: none; }
-  .app__container {
-    margin-top: 84px; }
   .create-left {
     display: none; }
   .create-right,

@@ -5,11 +5,14 @@
   display: flex; }
 
 .create-left img {
-  width: 400px;
+  width: 200px;
   height: auto;
   object-fit: cover;
   position: relative;
   top: 18px; }
+
+.btn-edit-avatar {
+  margin-top: 32px; }
 
 .create-right {
   margin-left: 120px; }
@@ -67,11 +70,10 @@
   margin-top: 36px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   justify-content: space-between; }
 
 .btn-quit:hover {
-  color: #1c6758; }
+  color: #f6412e; }
 
 .btn-quit {
   margin-left: -18px;
