@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
-  /* Set lại chiều cao và trừ đi phần navbar ban đầu về 0 để căn giữa header-with-search */
   .hide-on-mobile-tablet {
     display: none; }
   .header {
@@ -27,7 +26,7 @@
   .header__sort-bar {
     display: flex; }
   .app__container {
-    margin-top: calc(78px + $header-sort-bar-height)-20px; }
+    margin-top: calc(78px + 46px)-20px; }
   .mobile-category {
     display: block; } }
 
@@ -49,8 +48,9 @@
   .header {
     height: 84px; }
   .header__sort-bar {
-    top: 84px; }
+    top: 75px; }
   .header-with-search {
+    height: 34px;
     justify-content: space-between; }
   .header__logo-img {
     margin: 8px 0px 0px 68px;
@@ -59,7 +59,7 @@
   .header__search {
     position: fixed;
     z-index: 1;
-    top: 84px;
+    top: 75px;
     left: 0;
     right: 0;
     height: 46px;
@@ -85,7 +85,7 @@
     display: block; }
   .header__search-history {
     position: fixed;
-    top: calc(($header-with-search-height + $header-sort-bar-height) + 2px);
+    top: calc((32px + 46px) + 2px);
     left: 0;
     width: 100%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
@@ -94,7 +94,7 @@
   .app__content {
     padding-top: 8px; }
   .home-product {
-    margin-top: -16px; }
+    margin-top: -27px; }
   .pagination-item {
     margin: 0 8px; }
   .pagination__link {
@@ -118,7 +118,7 @@
     padding: 10px 8px; }
   .container-wrap__login {
     align-items: flex-start;
-    height: 75vh; }
+    height: 85vh; }
   .content-left.mobile-login {
     display: none; }
   .content-right.mobile-login {
@@ -128,7 +128,8 @@
     width: 365px; }
   .form-container__login {
     display: block;
-    background-color: white; }
+    background-color: white;
+    height: 100vh; }
   .form-action-login .title {
     width: 100%; }
   .register-mode .content-left {
@@ -159,4 +160,17 @@
   .btn-quit {
     margin-left: 0; }
   .btn-confirm {
-    width: 180px; } }
+    width: 180px; }
+  .carousel-inner {
+    margin-top: 65px; }
+  .header__navbar-logo-img {
+    width: 106px;
+    position: relative;
+    top: -2px; }
+  .header__navbar-icon-bag {
+    color: white; }
+  .header__navbar-list {
+    padding: 0 10px; }
+  .header-menu {
+    display: block;
+    margin-left: 12px; } }

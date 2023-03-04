@@ -111,14 +111,16 @@ body::-webkit-scrollbar-thumb {
 
 .scroll-top-icon {
     font-size: 35px;
-    color: var(--white-color);
+    color: $white;
 }
 
 // Content
 @import 'home';
 @import 'base';
 @import 'grid';
+@import 'menu-mobile';
 @import 'login';
 @import 'register';
 @import 'create';
+@import 'cart';
 @import 'responsive';

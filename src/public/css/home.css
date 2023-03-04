@@ -3,7 +3,7 @@
   overflow: hidden; }
 
 .header {
-  height: 130px;
+  height: 134px;
   /* deg: Có thể xoay theo độ (vd: 45, 90, 120,...) */
   background-color: #f6412e;
   /* Để cố định header trên đầu khi lướt phải dùng fixed */
@@ -34,7 +34,7 @@
   display: inline-block;
   font-size: 1.4rem;
   text-decoration: none;
-  color: #fff;
+  color: white;
   font-weight: 400; }
 
 .header__navbar-user {
@@ -64,8 +64,8 @@
   padding-left: 0;
   list-style: none;
   border-radius: 2px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border: 1px solid #bcbcbc;
+  background-color: white;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   animation: growth ease-in 0.2s;
   transform-origin: calc(100% - 20px) top;
@@ -78,7 +78,7 @@
   right: 12px;
   border: solid;
   border-width: 11px 13px;
-  border-color: transparent transparent #fff transparent; }
+  border-color: transparent transparent white transparent; }
 
 .header__navbar-user-menu::after {
   content: '';
@@ -109,7 +109,7 @@
   background-color: #eee; }
 
 .header__navbar-user-item--seperate {
-  border-top: 1px solid #ddd; }
+  border-top: 1px solid #bcbcbc; }
 
 /* Icon thẳng hàng với chữ */
 .header__navbar-item,
@@ -129,7 +129,7 @@
 .header__navbar-title--no-pointer {
   cursor: text;
   user-select: none;
-  color: #fff; }
+  color: white; }
 
 /* Hiển thị bảng thông báo khi hover */
 .header__navbar-item--has-notify:hover .header__notify {
@@ -143,8 +143,8 @@
   width: 400px;
   border-radius: 2px;
   animation: growth ease-in 0.2s;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: white;
+  border: 1px solid #bcbcbc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   /* Khai báo để trình duyệt tối ưu chuyển động */
   will-change: opacity transform;
@@ -162,7 +162,7 @@
   /* Cho box thành hình chữ nhật để có mũi tên dẹp */
   border-width: 18px 26px;
   /* Chia box làm 4 sau đó ẩn 3 tam giác còn lại. Chỉ lấy tam giác chỉa lên */
-  border-color: transparent transparent #fff transparent; }
+  border-color: transparent transparent white transparent; }
 
 .header__notify::after {
   content: '';
@@ -175,7 +175,7 @@
 .header__notify-header {
   height: 40px;
   margin-left: 12px;
-  background-color: #fff;
+  background-color: white;
   /* Không cho copy */
   user-select: none; }
 
@@ -240,7 +240,7 @@
 
 /* Header with search */
 .header-with-search {
-  height: 32px;
+  height: 62px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -253,7 +253,7 @@
 
 .header__mobile-search-icon {
   font-size: 2.6rem;
-  color: #fff; }
+  color: white; }
 
 .header-search-checkbox:checked ~ .header__search {
   display: flex; }
@@ -269,7 +269,7 @@
 
 .header__search {
   width: 550px;
-  background-color: #fff;
+  background-color: white;
   height: 40px;
   border-radius: 2px;
   /* Cho flex ở cha để chứa thèn "Trong Shop" */
@@ -304,7 +304,7 @@
   width: calc(100% - 20px);
   border-radius: 2px;
   box-shadow: 0 0 3px #ccc;
-  background-color: #fff;
+  background-color: white;
   overflow: hidden;
   z-index: 1;
   display: none; }
@@ -340,7 +340,7 @@
   list-style: none;
   margin-top: 16px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.281);
   z-index: 1;
   display: none; }
@@ -398,7 +398,7 @@
   cursor: pointer; }
 
 .header__search-btn-icon {
-  color: #fff;
+  color: white;
   font-size: 1.4rem; }
 
 /* Cart Layout */
@@ -418,7 +418,7 @@
 
 .header__cart-icon {
   font-size: 2.4rem;
-  color: #fff; }
+  color: white; }
 
 .header__cart-notice {
   position: absolute;
@@ -429,7 +429,7 @@
   border-radius: 10px;
   border: 2px solid #b80a36;
   color: #f6412e;
-  background-color: #fff; }
+  background-color: white; }
 
 .header__cart-list {
   position: absolute;
@@ -438,7 +438,7 @@
   width: 400px;
   cursor: default;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: white;
   /*  ngang - dọc - mờ - độ lớn - màu */
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
   animation: growth ease-in 0.2s;
@@ -457,7 +457,7 @@
   cursor: pointer;
   border-style: solid;
   border-width: 23px 33px;
-  border-color: transparent transparent #fff transparent; }
+  border-color: transparent transparent white transparent; }
 
 .header__cart-list--no-cart {
   padding: 12px 0; }
@@ -505,7 +505,7 @@
   width: 42px;
   height: 42px;
   margin: 12px;
-  border: 1px solid #ddd; }
+  border: 1px solid #bcbcbc; }
 
 .header__cart-item-info {
   width: 100%;
@@ -573,13 +573,13 @@
   left: 0;
   right: 0;
   height: 46px;
-  background-color: #fff;
+  background-color: white;
   list-style: none;
   display: flex;
   margin: 0;
   padding-left: 0;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
   display: none; }
 
 .header__sort-item {
@@ -604,7 +604,7 @@
   top: 50%;
   /* Di chuyển lên trên khoảng 50% kích thước của thẻ con */
   transform: translateY(-50%);
-  border-left: 1px solid #ddd; }
+  border-left: 1px solid #bcbcbc; }
 
 .header__sort-item:first-child .header__sort-link::after {
   display: none; }
@@ -622,7 +622,7 @@
 
 .category {
   border-radius: 2px;
-  background-color: #fff; }
+  background-color: white; }
 
 .category__heading {
   margin-top: 0;
@@ -648,7 +648,7 @@
   top: 0;
   left: 20px;
   right: 20px;
-  border-top: 1px solid #ddd; }
+  border-top: 1px solid #bcbcbc; }
 
 .category-item--active .category-item__link {
   color: #f6412e; }
@@ -718,7 +718,7 @@
   font-weight: 300;
   line-height: 2rem;
   text-align: center;
-  color: #fff;
+  color: white;
   text-decoration: none;
   border-radius: 4px;
   overflow: hidden;
@@ -743,7 +743,7 @@
   display: block;
   margin-top: 10px;
   text-decoration: none;
-  background-color: #fff;
+  background-color: white;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -824,7 +824,7 @@
 
 .pagination-item--active .pagination__link {
   border-radius: 3px;
-  color: #fff;
+  color: white;
   background-color: #f6412e; }
 
 .pagination-item--active:hover .pagination__link {
@@ -882,7 +882,7 @@
   width: 80px;
   height: 80px;
   margin-right: 16px;
-  border: 1px solid #ddd; }
+  border: 1px solid #bcbcbc; }
 
 .footer__dowload-apps {
   display: flex;

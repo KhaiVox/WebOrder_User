@@ -1,4 +1,5 @@
 @import 'variables';
+
 .create {
     width: 500px;
     padding: 32px 50px;
@@ -38,7 +39,7 @@
     font-size: 3.2rem;
     font-weight: 500;
     margin-bottom: 42px;
-    color: $primary;
+    color: $primary-color;
     text-align: center;
     text-transform: capitalize;
     font-family: 'Mitr', sans-serif;

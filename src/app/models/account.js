@@ -9,13 +9,13 @@ const Schema = mongoose.Schema
 
 const AccountSchema = new Schema(
     {
-        username: String,
-        password: String,
-        fullname: String,
-        address: String,
-        phone: String,
-        avatar: String,
-        deleted: Boolean
+        username: { type: String },
+        password: { type: String },
+        fullname: { type: String },
+        address: { type: String },
+        phone: { type: String },
+        avatar: { type: String },
+        deleted: { type: Boolean },
     },
     {
         collection: 'account_users',

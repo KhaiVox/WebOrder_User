@@ -1,5 +1,6 @@
 const Food = require('../models/product')
 const Account = require('../models/account')
+const Cart = require('../models/cart')
 
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
@@ -28,23 +29,29 @@ class UserController {
 
     // [GET] /user/filter
     filter(req, res, next) {
-        // có thể tạo biến if để lấy giá trị req.params.slug = tiếng việt
-        // Promise.all([Food.find({ type: req.params.slug }).countDocuments(), Food.find({ type: req.params.slug })]).then(
-        //     ([quantity, foods]) => {
-        //         res.render('foods', {
-        //             quantity,
-        //             foods: mutipleMongooseToObject(foods),
-        //         })
-        //     },
-        // )
+        try {
+            var token = req.cookies.token
+            if (token) {
+                Promise.all([Food.find({ type: req.params.slug }), Account.findOne({ _id: token })])
+                    .then(([foods, user]) => {
+                        res.render('home', {
+                            foods: mutipleMongooseToObject(foods),
+                            user: mongooseToObject(user),
+                        })
+                    })
+                    .catch(next)
 
-        Food.find({ type: req.params.slug })
-            .then((foods) =>
-                res.render('home', {
-                    foods: mutipleMongooseToObject(foods),
-                }),
-            )
-            .catch(next)
+                // Food.find({ type: req.params.slug })
+                //     .then((foods) =>
+                //         res.render('home', {
+                //             foods: mutipleMongooseToObject(foods),
+                //         }),
+                //     )
+                //     .catch(next)
+            } else {
+                res.render('login')
+            }
+        } catch (error) {}
     }
 
     // [GET] /user/register
@@ -52,7 +59,6 @@ class UserController {
         try {
             var token = req.cookies.token
             if (token) {
-                var token = req.cookies.token
                 Account.findOne({ _id: token })
                     .then((user) => {
                         res.render('editProfile', { user: mongooseToObject(user) })
@@ -69,6 +75,24 @@ class UserController {
         Account.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/user/editProfile'))
             .catch(next)
+    }
+
+    // [PUT] /user/cart
+    cart(req, res, next) {
+        try {
+            // , state: true
+            var token = req.cookies.token
+            if (token) {
+                Cart.findOne({ id_Account: token, state: true })
+                    .then((cart) => {
+                        res.render('cart', { cart_info: mongooseToObject(cart) })
+                        // res.json(cart)
+                    })
+                    .catch(next)
+            } else {
+                res.render('login')
+            }
+        } catch (error) {}
     }
 }
 

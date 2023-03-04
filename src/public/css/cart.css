@@ -1,0 +1,143 @@
+@charset "UTF-8";
+.cart {
+  margin-bottom: 180px; }
+
+.cart-header {
+  margin-top: 160px;
+  text-align: center; }
+
+.cart-title {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #000; }
+
+.cart-heading-name {
+  padding: 10px 0;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 600;
+  text-align: center; }
+
+.cart-item {
+  border-top: 1px solid #bcbcbc; }
+
+.cart-item .col-lg-3 {
+  text-align: center;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.cart-product {
+  display: flex;
+  flex-direction: column; }
+
+.cart-img {
+  width: 60px;
+  height: 60px;
+  margin-left: -22px; }
+
+.cart-name {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 600;
+  /* Tối đa chỉ có 1 dòng duy nhất */
+  text-align: center;
+  line-height: 2.8rem;
+  overflow: hidden;
+  max-height: 2.8rem;
+  /* Ẩn bớt nội dung và thể hiện = dấu 3 chấm */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; }
+
+.btn-delete:hover {
+  color: #fff;
+  background-color: #a60c0c;
+  border: 1px solid #a60c0c; }
+
+.btn-delete {
+  width: 96px;
+  height: 30px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  text-align: center;
+  margin: 15px 8px;
+  font-size: 1.4rem;
+  transition: 0.2s;
+  line-height: 28px;
+  cursor: pointer; }
+
+.cart-price {
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-top: 8px; }
+
+.cart-delete:hover {
+  color: #a60c0c; }
+
+.cart-delete {
+  font-size: 2.4rem;
+  position: relative;
+  left: -60px;
+  cursor: pointer;
+  color: #494949; }
+
+.cart-quantity {
+  font-weight: 400;
+  font-size: 1.6rem;
+  border: none;
+  border: 1px solid #000;
+  margin-top: 3px;
+  text-align: center;
+  outline: none; }
+
+.cart-footer {
+  margin-right: 90px; }
+
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px 0; }
+
+.cart-title-total:first-child {
+  margin-right: 32px; }
+
+.cart-title-total {
+  color: #000;
+  font-weight: 400;
+  font-size: 1.8rem; }
+
+.cart-title-total span {
+  font-weight: 600;
+  font-size: 1.8rem; }
+
+.cart-btn {
+  display: flex;
+  justify-content: flex-end; }
+
+.cart-next,
+.cart-payment {
+  cursor: pointer;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #f6412e; }
+
+.cart-next {
+  margin-right: 12px; }
+
+.cart-payment:hover {
+  opacity: 0.9; }
+
+.cart-payment {
+  color: #fff;
+  background-color: #000;
+  transition: 0.3s; }
+
+.cart-price-mobile {
+  font-size: 1.4rem;
+  font-weight: 400;
+  display: none; }

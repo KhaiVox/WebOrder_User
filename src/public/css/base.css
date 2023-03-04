@@ -29,7 +29,7 @@
   justify-content: center; }
 
 .btn-primary {
-  color: #fff;
+  color: white;
   background-color: #f6412e; }
 
 /* Modal */
@@ -47,7 +47,7 @@
   font-size: 1.4rem;
   padding: 0 12px;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@
   right: 0;
   top: 26px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: white;
   padding-left: 0;
   display: none;
   animation: fadeIn linear 0.2s;

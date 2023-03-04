@@ -4,7 +4,7 @@
 }
 
 .header {
-    height: $header-height;
+    height: 134px;
     /* deg: Có thể xoay theo độ (vd: 45, 90, 120,...) */
     background-color: $primary-color;
     /* Để cố định header trên đầu khi lướt phải dùng fixed */
@@ -16,7 +16,7 @@
 }
 
 .header__navbar {
-    height: $navbar-height;
+    height: 34px;
     display: flex;
     justify-content: space-between;
 }
@@ -39,7 +39,7 @@
     display: inline-block;
     font-size: 1.4rem;
     text-decoration: none;
-    color: $white-color;
+    color: $white;
     font-weight: 400;
 }
 
@@ -74,8 +74,8 @@
     padding-left: 0;
     list-style: none;
     border-radius: 2px;
-    border: 1px solid $border-color;
-    background-color: $white-color;
+    border: 1px solid $border;
+    background-color: $white;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     animation: growth ease-in 0.2s;
     transform-origin: calc(100% - 20px) top;
@@ -89,7 +89,7 @@
     right: 12px;
     border: solid;
     border-width: 11px 13px;
-    border-color: transparent transparent $white-color transparent;
+    border-color: transparent transparent $white transparent;
 }
 
 .header__navbar-user-menu::after {
@@ -126,7 +126,7 @@
 }
 
 .header__navbar-user-item--seperate {
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $border;
 }
 
 /* Icon thẳng hàng với chữ */
@@ -151,7 +151,7 @@
 .header__navbar-title--no-pointer {
     cursor: text;
     user-select: none;
-    color: $white-color;
+    color: $white;
 }
 
 /* Hiển thị bảng thông báo khi hover */
@@ -169,8 +169,8 @@
     width: 400px;
     border-radius: 2px;
     animation: growth ease-in 0.2s;
-    background-color: $white-color;
-    border: 1px solid $border-color;
+    background-color: $white;
+    border: 1px solid $border;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     /* Khai báo để trình duyệt tối ưu chuyển động */
     will-change: opacity transform;
@@ -190,7 +190,7 @@
     /* Cho box thành hình chữ nhật để có mũi tên dẹp */
     border-width: 18px 26px;
     /* Chia box làm 4 sau đó ẩn 3 tam giác còn lại. Chỉ lấy tam giác chỉa lên */
-    border-color: transparent transparent $white-color transparent;
+    border-color: transparent transparent $white transparent;
 }
 
 .header__notify::after {
@@ -205,7 +205,7 @@
 .header__notify-header {
     height: 40px;
     margin-left: 12px;
-    background-color: $white-color;
+    background-color: $white;
     /* Không cho copy */
     user-select: none;
 }
@@ -284,7 +284,7 @@
 /* Header with search */
 
 .header-with-search {
-    height: $header-with-search-height;
+    height: 62px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -299,7 +299,7 @@
 
 .header__mobile-search-icon {
     font-size: 2.6rem;
-    color: $white-color;
+    color: $white;
 }
 
 .header-search-checkbox:checked ~ .header__search {
@@ -320,7 +320,7 @@
 
 .header__search {
     width: 550px;
-    background-color: $white-color;
+    background-color: $white;
     height: 40px;
     border-radius: 2px;
     /* Cho flex ở cha để chứa thèn "Trong Shop" */
@@ -361,7 +361,7 @@
     width: calc(100% - 20px);
     border-radius: 2px;
     box-shadow: 0 0 3px #ccc;
-    background-color: $white-color;
+    background-color: $white;
     overflow: hidden;
     z-index: 1;
     display: none;
@@ -403,7 +403,7 @@
     list-style: none;
     margin-top: 16px;
     border-radius: 2px;
-    background-color: $white-color;
+    background-color: $white;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.281);
     z-index: 1;
     display: none;
@@ -472,7 +472,7 @@
 }
 
 .header__search-btn-icon {
-    color: $white-color;
+    color: $white;
     font-size: 1.4rem;
 }
 
@@ -498,7 +498,7 @@
 
 .header__cart-icon {
     font-size: 2.4rem;
-    color: $white-color;
+    color: $white;
 }
 
 .header__cart-notice {
@@ -510,7 +510,7 @@
     border-radius: 10px;
     border: 2px solid #b80a36;
     color: $primary-color;
-    background-color: $white-color;
+    background-color: $white;
 }
 
 .header__cart-list {
@@ -520,7 +520,7 @@
     width: 400px;
     cursor: default;
     border-radius: 2px;
-    background-color: $white-color;
+    background-color: $white;
     /*  ngang - dọc - mờ - độ lớn - màu */
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
     animation: growth ease-in 0.2s;
@@ -540,7 +540,7 @@
     cursor: pointer;
     border-style: solid;
     border-width: 23px 33px;
-    border-color: transparent transparent $white-color transparent;
+    border-color: transparent transparent $white transparent;
 }
 
 .header__cart-list--no-cart {
@@ -598,7 +598,7 @@
     width: 42px;
     height: 42px;
     margin: 12px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
 }
 
 .header__cart-item-info {
@@ -674,17 +674,17 @@
 
 .header__sort-bar {
     position: fixed;
-    top: $header-height;
+    top: 130px;
     left: 0;
     right: 0;
-    height: $header-sort-bar-height;
-    background-color: $white-color;
+    height: 46px;
+    background-color: $white;
     list-style: none;
     display: flex;
     margin: 0;
     padding-left: 0;
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
     display: none;
 }
 
@@ -698,7 +698,7 @@
     font-size: 1.4rem;
     display: block;
     height: 100%;
-    line-height: $header-sort-bar-height;
+    line-height: 46px;
     text-align: center;
     position: relative;
 }
@@ -712,7 +712,7 @@
     top: 50%;
     /* Di chuyển lên trên khoảng 50% kích thước của thẻ con */
     transform: translateY(-50%);
-    border-left: 1px solid $border-color;
+    border-left: 1px solid $border;
 }
 
 .header__sort-item:first-child .header__sort-link::after {
@@ -726,7 +726,7 @@
 /* App Container */
 
 .app__container {
-    margin-top: $header-height;
+    margin-top: 130px;
     margin-bottom: 32px;
 }
 
@@ -736,7 +736,7 @@
 
 .category {
     border-radius: 2px;
-    background-color: $white-color;
+    background-color: $white;
 }
 
 .category__heading {
@@ -767,7 +767,7 @@
     top: 0;
     left: 20px;
     right: 20px;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $border;
 }
 
 .category-item--active .category-item__link {
@@ -851,7 +851,7 @@
     font-weight: 300;
     line-height: 2rem;
     text-align: center;
-    color: $white-color;
+    color: $white;
     text-decoration: none;
     border-radius: 4px;
     overflow: hidden;
@@ -880,7 +880,7 @@
     display: block;
     margin-top: 10px;
     text-decoration: none;
-    background-color: $white-color;
+    background-color: $white;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -975,7 +975,7 @@
 
 .pagination-item--active .pagination__link {
     border-radius: 3px;
-    color: $white-color;
+    color: $white;
     background-color: $primary-color;
 }
 
@@ -1045,7 +1045,7 @@
     width: 80px;
     height: 80px;
     margin-right: 16px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
 }
 
 .footer__dowload-apps {

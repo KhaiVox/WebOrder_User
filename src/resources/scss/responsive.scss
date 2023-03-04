@@ -3,9 +3,6 @@
 /* Mobile & Tablet */
 
 @media (max-width: 1023px) {
-    /* Set lại chiều cao và trừ đi phần navbar ban đầu về 0 để căn giữa header-with-search */
-    // --header-height: 78px;
-    // --navbar-height: 0px;
     .hide-on-mobile-tablet {
         display: none;
     }
@@ -38,7 +35,7 @@
         display: flex;
     }
     .app__container {
-        margin-top: calc(78px + $header-sort-bar-height) - 20px;
+        margin-top: calc(78px + 46px) - 20px;
     }
     .mobile-category {
         display: block;
@@ -72,9 +69,10 @@
         height: 84px;
     }
     .header__sort-bar {
-        top: 84px;
+        top: 75px;
     }
     .header-with-search {
+        height: 34px;
         justify-content: space-between;
     }
     .header__logo-img {
@@ -85,7 +83,7 @@
     .header__search {
         position: fixed;
         z-index: 1;
-        top: 84px;
+        top: 75px;
         left: 0;
         right: 0;
         height: 46px;
@@ -118,7 +116,7 @@
     }
     .header__search-history {
         position: fixed;
-        top: calc(($header-with-search-height + $header-sort-bar-height) + 2px);
+        top: calc((32px + 46px) + 2px);
         left: 0;
         width: 100%;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -130,7 +128,7 @@
         padding-top: 8px;
     }
     .home-product {
-        margin-top: -16px;
+        margin-top: -27px;
     }
     .pagination-item {
         margin: 0 8px;
@@ -165,13 +163,14 @@
     // Form Login
     .container-wrap__login {
         align-items: flex-start;
-        height: 75vh;
+        height: 85vh;
     }
     .content-left.mobile-login {
         display: none;
     }
     .content-right.mobile-login {
         width: 100%;
+        // padding-bottom: 150px;
     }
     .form-action-login {
         padding: 0 20px;
@@ -180,6 +179,8 @@
     .form-container__login {
         display: block;
         background-color: white;
+        height: 100vh;
+        // padding-bottom: 90px;
     }
     .form-action-login .title {
         width: 100%;
@@ -231,5 +232,28 @@
     }
     .btn-confirm {
         width: 180px;
+    }
+
+    // Menu Nav
+    .header {
+        // height: 65px;
+    }
+    .carousel-inner {
+        margin-top: 65px;
+    }
+    .header__navbar-logo-img {
+        width: 106px;
+        position: relative;
+        top: -2px;
+    }
+    .header__navbar-icon-bag {
+        color: $white;
+    }
+    .header__navbar-list {
+        padding: 0 10px;
+    }
+    .header-menu {
+        display: block;
+        margin-left: 12px;
     }
 }

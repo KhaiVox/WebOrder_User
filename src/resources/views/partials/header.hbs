@@ -90,16 +90,13 @@
 
                 <ul class='header__navbar-user-menu'>
                     <li class='header__navbar-user-item'>
-                        <a href='user/editProfile'>Tài khoản của tôi</a>
-                    </li>
-                    <li class='header__navbar-user-item'>
-                        <a href=''>Đơn hàng</a>
+                        <a href='/user/editProfile'>Thông tin của tôi</a>
                     </li>
                     <li class='header__navbar-user-item'>
                         <a href=''>Đơn mua</a>
                     </li>
                     <li class='header__navbar-user-item'>
-                        <a href=''>Thông báo</a>
+                        <a href=''>Lịch sử</a>
                     </li>
                     <li class='header__navbar-user-item header__navbar-user-item--seperate'>
                         <a href='/deleteCookie'>Đăng xuất</a>
@@ -110,9 +107,51 @@
     </nav>
 
     <div class='header-with-search'>
-        <label for='mobile-search-checkbox' class='header__mobile-search'>
-            <i class='header__mobile-search-icon fas fa-search'></i>
+        
+
+        <label for="nav-mobile-input" class="header-menu">
+            <i class="header-menu-icon fa-solid fa-bars"></i>
         </label>
+        
+        {{!-- Menu Mobile --}}
+        <input type="checkbox" class="nav__input" id="nav-mobile-input">
+        <div class="nav__overlay"></div>
+        <label for="nav-mobile-input" class="nav__overlay"></label>
+        
+        <nav class="menu">
+            <div class="nav__header">
+                <div class="nav__header-item">
+                    <a href="" class="nav__mobile-item-link">
+                        <img src="./img/logo.png" alt="logo" class="nav__mobile-logo">
+                    </a>
+                </div>
+                <label for="nav-mobile-input" class="nav__header-item">
+                    <i class="nav__header-icon fa-solid fa-xmark"></i>
+                </label>
+            </div>
+            <div class="nav__mobile-list">
+                <li class="nav__mobile-item">
+                    <i class="nav__mobile-icon fa-solid fa-user"></i>
+                    <a href="/user/editProfile" class="nav__mobile-item-link">
+                        Tài khoản
+                    </a>
+                </li>
+                <li class="nav__mobile-item">
+                    <i class="nav__mobile-icon fa-solid fa-bag-shopping"></i>
+                    <a href="http://192.168.0.115:5502/cart.html" class="nav__mobile-item-link">
+                        Giỏ hàng
+                    </a>
+                </li>
+                <div class="nav--seperate"></div>
+                <li class="nav__mobile-item">
+                    <i class="nav__mobile-icon fa-solid fa-arrow-right-from-bracket"></i>
+                    <a href="/deleteCookie" class="nav__mobile-item-link">
+                        Đăng xuất
+                    </a>
+                </li>
+                <p class="menu-footer">Copyright © 2022 VKPA-STORE</p>
+            </div>
+        </nav>
 
         <div class='header__logo hide-on-tablet'>
             <!-- Nhấn logo đưa về trang chủ -->
@@ -149,8 +188,12 @@
 
         </div>
 
+        <label for='mobile-search-checkbox' class='header__mobile-search'>
+            <i class='header__mobile-search-icon fas fa-search'></i>
+        </label>
+
         <!-- Cart Layout -->
-        <div class='header__cart'>
+        <div class='header__cart hide-on-mobile'>
             <div class='header__cart-wrap'>
                 <i class='header__cart-icon fas fa-shopping-cart'></i>
                 <span class='header__cart-notice'>3</span>
@@ -252,8 +295,8 @@
                             </div>
                         </li>
                     </ul>
-                    <a href='#' class='btn btn-primary header__cart-item-view-cart'>Xem giỏ hàng</a>
-                </div>
+                    <a href='/user/cart' class='btn btn-primary header__cart-item-view-cart'>Xem giỏ hàng</a>
+                </div> 
             </div>
         </div>
     </div>
