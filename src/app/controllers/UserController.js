@@ -78,17 +78,27 @@ class UserController {
     }
 
     // [PUT] /user/cart
-    cart(req, res, next) {
+    async cart(req, res, next) {
         try {
             // , state: true
             var token = req.cookies.token
             if (token) {
-                Cart.findOne({ id_Account: token, state: true })
-                    .then((cart) => {
-                        res.render('cart', { cart_info: mongooseToObject(cart) })
-                        // res.json(cart)
-                    })
-                    .catch(next)
+                const getCart = await Cart.findOne({ id_Account: token })
+                const getDetailCart = getCart.detail_Cart
+
+                const getFoodId = getDetailCart.map((item) => item.id_Food)
+                const listFood = []
+                for (let i of getFoodId) {
+                    let food = await Food.find({ _id: i })
+                    listFood.push(...food)
+                }
+
+                res.render('cart', {
+                    cart_info: mongooseToObject(getCart),
+                    getFood: mutipleMongooseToObject(listFood),
+                    getDetailCart,
+                }).catch(next)
+                // res.json(123)
             } else {
                 res.render('login')
             }

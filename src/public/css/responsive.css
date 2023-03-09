@@ -173,4 +173,18 @@
     padding: 0 10px; }
   .header-menu {
     display: block;
-    margin-left: 12px; } }
+    margin-left: 12px; }
+  /* Cart */
+  .cart-header .create-header {
+    margin-bottom: 42px; }
+  .cart-heading-name,
+  .cart-item .col-lg-3 {
+    width: 25%; }
+  .cart-img {
+    width: 50px;
+    height: 50px; }
+  .cart-name,
+  .cart-price {
+    font-size: 1.5rem; }
+  .cart-footer {
+    margin: 32px 0; } }
