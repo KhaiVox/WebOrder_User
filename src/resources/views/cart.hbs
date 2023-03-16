@@ -1,22 +1,23 @@
 <div class='cart'>
     <div class='container'>
         <div class='cart-header'>
-            <h1 class='create-header'>Giỏ Hàng Của Bạn ()</h1>
+            <h1 class='create-header'>Giỏ Hàng Của Bạn ({{countFood}})</h1>
             <h4>{{cart_info.total}}</h4>
         </div>
+
         <div class='cart-body'>
             <div class='container'>
                 <div class='row cart-heading'>
                     <div class='col-7'>
                         <div class='cart-wrap'>
-                            <div class='cart-wrap-item cart-heading-name'>Ảnh</div>
-                            <div class='cart-wrap-item cart-heading-name cart-wrap-item--right'>Tên</div>
+                            <div class='cart-heading-name'>Ảnh</div>
+                            <div class='cart-heading-name cart-wrap-item--right'>Tên</div>
                         </div>
                     </div>
                     <div class='col-5'>
                         <div class='cart-wrap'>
-                            <div class='cart-wrap-item cart-heading-name'>Số lượng</div>
-                            <div class='cart-wrap-item cart-heading-name'>Giá</div>
+                            <div class='cart-heading-name'>Số lượng</div>
+                            <div class='cart-heading-name cart-wrap-item--right'>Giá</div>
                         </div>
                     </div>
                 </div>
@@ -28,13 +29,10 @@
                             {{#each getFood}}
                                 <div class='cart-wrap'>
                                     <div class='cart-wrap-item'>
-                                        {{! <i class='cart-delete fa-solid fa-trash'></i> }}
                                         <img src={{img}} width='120' alt='' class='cart-img' />
                                     </div>
                                     <div class='cart-wrap-item cart-wrap-item--right'>
-                                        <div class='cart-product'>
-                                            <div class='cart-name' title='Designers Chair Vol.1'>{{name}}</div>
-                                        </div>
+                                        <div class='cart-name' title='Designers Chair Vol.1'>{{name}}</div>
                                     </div>
                                 </div>
                             {{/each}}
@@ -49,11 +47,14 @@
                                             value={{quantity}}
                                             max='10'
                                             min='1'
+                                            data-id='{{_id}}'
+                                            onchange='updatePrice(this)'
                                         />
                                     </div>
                                     <div class='cart-wrap-item'>
                                         <div class='cart-price'>{{price}}.000 Đ</div>
                                     </div>
+                                    <i class='cart-delete fa-solid fa-trash'></i>
                                 </div>
                             {{/each}}
                         </div>

@@ -161,30 +161,31 @@
 
         <input type='checkbox' name='' hidden id='mobile-search-checkbox' class='header-search-checkbox' />
 
-        <div class='header__search'>
-            <div class='header__search-input-wrap'>
-                <input type='text' class='header__search-input' placeholder='Nhập để tìm kiếm' />
-                <!-- Search History -->
-                <div class='header__search-history'>
-                    <div class='header__search-history-heading'>Lịch sử tìm kiếm</div>
-                    <ul class='header__search-history-list'>
-                        <li class='header__search-history-item'>
-                            <a href=''>Dầu gội</a>
-                        </li>
-                        <li class='header__search-history-item'>
-                            <a href=''>Nước hoa</a>
-                        </li>
-                        <li class='header__search-history-item'>
-                            <a href=''>Sữa rửa mặt</a>
-                        </li>
-                    </ul>
+        <form action='/user/search' method='GET'>
+            <div class='header__search'>
+                <div class='header__search-input-wrap'>
+                    <input type='text' name="text" class='header__search-input' placeholder='Nhập để tìm kiếm' />
+                    <!-- Search History -->
+                    <div class='header__search-history'>
+                        <div class='header__search-history-heading'>Lịch sử tìm kiếm</div>
+                        <ul class='header__search-history-list'>
+                            <li class='header__search-history-item'>
+                                <a href=''>Dầu gội</a>
+                            </li>
+                            <li class='header__search-history-item'>
+                                <a href=''>Nước hoa</a>
+                            </li>
+                            <li class='header__search-history-item'>
+                                <a href=''>Sữa rửa mặt</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <button type="submit" class='header__search-btn'>
+                    <i class='header__search-btn-icon fas fa-search'></i>
+                </button>
             </div>
-            <button class='header__search-btn'>
-                <i class='header__search-btn-icon fas fa-search'></i>
-            </button>
-
-        </div>
+        </form>
 
         <label for='mobile-search-checkbox' class='header__mobile-search'>
             <i class='header__mobile-search-icon fas fa-search'></i>
@@ -194,7 +195,7 @@
         <div class='header__cart hide-on-mobile'>
             <div class='header__cart-wrap'>
                 <i class='header__cart-icon fas fa-shopping-cart'></i>
-                <span class='header__cart-notice'>3</span>
+                <span class='header__cart-notice'>{{countFood}}</span>
                 <!-- No Cart: header__cart-list--no-cart -->
                 <div class='header__cart-list header__cart-list--no-cart'>
                     <img src='/img/no_cart.png' alt='' class='header__cart-no-cart-img' />
@@ -204,94 +205,31 @@
                     <!-- Has Cart -->
                     <div class='header__cart-heading'>Sản phẩm đã thêm</div>
                     <ul class='header__cart-list-item'>
-                        <li class='header__cart-item'>
-                            <img
-                                src='https://cf.shopee.vn/file/bbe02406e2e3d33e5a1c22161c922ed5_tn'
-                                alt=''
-                                class='header__cart-img'
-                            />
-                            <div class='header__cart-item-info'>
-                                <div class='header__cart-item-head'>
-                                    <h5 class='header__cart-item-name'>Dép Nam Trendy(fendi) Shondo Đen</h5>
-                                    <span class='header__cart-item-price'>255.000đ</span>
-                                </div>
-                                <div class='header__cart-item-body'>
-                                    <div class='header__cart-item-price-wrap'>
-                                        <span class='header__cart-item-description'>
-                                            Số lượng:
-                                        </span>
-                                        <span class='header__cart-item-qnt'>12</span>
+                        {{#each getFood}}
+                            <li class='header__cart-item'>
+                                <img
+                                    src={{img}}
+                                    alt={{name}}
+                                    class='header__cart-img'
+                                />
+                                <div class='header__cart-item-info'>
+                                    <div class='header__cart-item-head'>
+                                        <h5 class='header__cart-item-name'>{{name}}
+                                            K/DA</h5>
+                                        <span class='header__cart-item-price'>959.000đ</span>
                                     </div>
-                                    <span class='header__cart-item-remove'>Xóa</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='header__cart-item'>
-                            <img
-                                src='https://noithatthienminh.vn/wp-content/uploads/2019/06/09e032f4f245171b4e543.jpg'
-                                alt=''
-                                class='header__cart-img'
-                            />
-                            <div class='header__cart-item-info'>
-                                <div class='header__cart-item-head'>
-                                    <h5 class='header__cart-item-name'>Ghế gaming Galax RGB GC-02</h5>
-                                    <span class='header__cart-item-price'>7.980.000đ</span>
-                                </div>
-                                <div class='header__cart-item-body'>
-                                    <div class='header__cart-item-price-wrap'>
-                                        <span class='header__cart-item-description'>
-                                            Số lượng:
-                                        </span>
-                                        <span class='header__cart-item-qnt'>1</span>
+                                    <div class='header__cart-item-body'>
+                                        <div class='header__cart-item-price-wrap'>
+                                            <span class='header__cart-item-description'>
+                                                Số lượng:
+                                            </span>
+                                            <span class='header__cart-item-qnt'>1</span>
+                                        </div>
+                                        <span class='header__cart-item-remove'>Xóa</span>
                                     </div>
-                                    <span class='header__cart-item-remove'>Xóa</span>
                                 </div>
-                            </div>
-                        </li>
-                        <li class='header__cart-item'>
-                            <img
-                                src='https://salt.tikicdn.com/cache/100x100/ts/product/86/dd/0c/8948ec0e37381d80d7daf5f8c24062ed.jpg.webp'
-                                alt=''
-                                class='header__cart-img'
-                            />
-                            <div class='header__cart-item-info'>
-                                <div class='header__cart-item-head'>
-                                    <h5 class='header__cart-item-name'>Điện thoại iPhone 13 Pro Max
-                                    </h5>
-                                    <span class='header__cart-item-price'>45.990.000đ</span>
-                                </div>
-                                <div class='header__cart-item-body'>
-                                    <div class='header__cart-item-price-wrap'>
-                                        <span class='header__cart-item-description'>Số lượng:</span>
-                                        <span class='header__cart-item-qnt'>8</span>
-                                    </div>
-                                    <span class='header__cart-item-remove'>Xóa</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='header__cart-item'>
-                            <img
-                                src='https://cf.shopee.vn/file/a2580cf94870c71acf4566a3ae4251d6_tn'
-                                alt=''
-                                class='header__cart-img'
-                            />
-                            <div class='header__cart-item-info'>
-                                <div class='header__cart-item-head'>
-                                    <h5 class='header__cart-item-name'>Chuột game không dây LIGHTSPEED Logitech G304
-                                        K/DA</h5>
-                                    <span class='header__cart-item-price'>959.000đ</span>
-                                </div>
-                                <div class='header__cart-item-body'>
-                                    <div class='header__cart-item-price-wrap'>
-                                        <span class='header__cart-item-description'>
-                                            Số lượng:
-                                        </span>
-                                        <span class='header__cart-item-qnt'>1</span>
-                                    </div>
-                                    <span class='header__cart-item-remove'>Xóa</span>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        {{/each}}
                     </ul>
                     <a href='/user/cart' class='btn btn-primary header__cart-item-view-cart'>Xem giỏ hàng</a>
                 </div> 

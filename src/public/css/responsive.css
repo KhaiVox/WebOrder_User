@@ -26,9 +26,7 @@
   .header__sort-bar {
     display: flex; }
   .app__container {
-    margin-top: calc(78px + 46px)-20px; }
-  .mobile-category {
-    display: block; } }
+    margin-top: calc(78px + 46px)-20px; } }
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
@@ -177,14 +175,17 @@
   /* Cart */
   .cart-header .create-header {
     margin-bottom: 42px; }
-  .cart-heading-name,
-  .cart-item .col-lg-3 {
-    width: 25%; }
   .cart-img {
     width: 50px;
     height: 50px; }
   .cart-name,
   .cart-price {
     font-size: 1.5rem; }
+  .cart-body {
+    width: 100%; }
+  .cart-wrap .cart-wrap-item:last-child {
+    padding: 0; }
+  .cart-delete {
+    display: none; }
   .cart-footer {
     margin: 32px 0; } }
