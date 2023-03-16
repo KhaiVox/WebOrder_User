@@ -1,5 +1,4 @@
 <div class='row sm-gutter app__content'>
-    <h1>{{title}}</h1>
     <!-- Danh Mục -->
     <div class='col l-2 m-0 c-0'>
         <nav class='category'>
@@ -23,49 +22,20 @@
 
     <!-- Sản Phẩm -->
     <div class='col l-10 m-12 c-12'>
-        {{! <nav class='mobile-category'>
-            <ul class='mobile-category__list'>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-                <li class='mobile-category__item'>
-                    <a href='' class='mobile-category__link'>Dụng cụ & Thiết bị tiện ích</a>
-                </li>
-            </ul>
-        </nav> }}
-
         <div class='home-product'>
             <div class='row sm-gutter'>
                 <!-- Product Item-->
                 {{#each foods}}
                     <div class='product-item col l-3 m-4 c-6'>
                         <a class='home-product-item' href='#'>
-                            <div class='home-product-item__img' style='background-image: url({{img}});'></div>
+                            <input class='product-id' type='hidden' name='' value={{_id}} />
+                            <img src='{{img}}' alt='' class='home-product-item__img' />
                             <h4 class='home-product-item__name'>{{name}}</h4>
                             <div class='home-product-item__price'>
                                 <span class='home-product-item__price-title'>Giá :</span>
-                                <span class='home-product-item__price-number'>{{price}}.000 đ</span>
+                                <span class='home-product-item__price-number'><span
+                                        class='price-number'
+                                    >{{price}}</span>.000 đ</span>
                             </div>
                             <div class='home-product-btn'>
                                 <div class='btn btn-warning btn-add-cart'><span><ion-icon
@@ -79,8 +49,12 @@
             </div>
         </div>
 
-        {{!-- Pagination --}}
-        {{!-- <ul class='pagination home-product__pagination'>
+        <div class='notify'>
+            <h1>{{title}}</h1>
+        </div>
+
+        {{! Pagination }}
+        {{! <ul class='pagination home-product__pagination'>
             <li class='pagination-item'>
                 <a href='' class='pagination__link'>
                     <i class='pagination-item__icon fas fa-chevron-left'></i>
@@ -106,7 +80,6 @@
                     <i class='pagination-item__icon fas fa-chevron-right'></i>
                 </a>
             </li>
-        </ul> --}}
+        </ul> }}
     </div>
 </div>
-

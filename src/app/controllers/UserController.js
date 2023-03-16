@@ -7,20 +7,34 @@ const { mutipleMongooseToObject } = require('../../util/mongoose')
 
 class UserController {
     // [GET] /user
-    home(req, res, next) {
+    async home(req, res, next) {
         try {
             // kiểm tra thấy nếu token có giá trị sẽ cho phép truy cập vào trang HOME
             // sai sẽ trả về trang LOGIN
             var token = req.cookies.token
             if (token) {
-                Promise.all([Food.find(), Account.findOne({ _id: token })])
-                    .then(([foods, user]) => {
-                        res.render('home', {
-                            foods: mutipleMongooseToObject(foods),
-                            user: mongooseToObject(user),
-                        })
-                    })
-                    .catch(next)
+                const foods = await Food.find()
+                const user = await Account.findOne({ _id: token })
+
+                const getCart = await Cart.findOne({ id_Account: token, state: true })
+                const getDetailCart = getCart.detail_Cart
+
+                const getFoodId = getDetailCart.map((item) => item.id_Food)
+                const listFood = []
+                const countFood = getFoodId.length
+                for (let i of getFoodId) {
+                    let food = await Food.find({ _id: i })
+                    listFood.push(...food)
+                }
+
+                res.render('home', {
+                    foods: mutipleMongooseToObject(foods),
+                    user: mongooseToObject(user),
+                    cart_info: mongooseToObject(getCart),
+                    getFood: mutipleMongooseToObject(listFood),
+                    getDetailCart,
+                    countFood,
+                })
             } else {
                 res.render('login')
             }
@@ -83,11 +97,12 @@ class UserController {
             // , state: true
             var token = req.cookies.token
             if (token) {
-                const getCart = await Cart.findOne({ id_Account: token })
+                const getCart = await Cart.findOne({ id_Account: token, state: true })
                 const getDetailCart = getCart.detail_Cart
 
                 const getFoodId = getDetailCart.map((item) => item.id_Food)
                 const listFood = []
+                const countFood = getFoodId.length
                 for (let i of getFoodId) {
                     let food = await Food.find({ _id: i })
                     listFood.push(...food)
@@ -97,12 +112,35 @@ class UserController {
                     cart_info: mongooseToObject(getCart),
                     getFood: mutipleMongooseToObject(listFood),
                     getDetailCart,
+                    countFood,
                 }).catch(next)
-                // res.json(123)
             } else {
                 res.render('login')
             }
         } catch (error) {}
+    }
+
+    // [GET] /user/search
+    search(req, res, next) {
+        const textSearch = req.query.text
+
+        Food.find({
+            $or: [{ name: { $regex: textSearch } }],
+        })
+            .then((foods) => {
+                if (foods == '') {
+                    res.render('home', {
+                        title: 'Không có sản phẩm nào !!',
+                    })
+                } else {
+                    res.render('home', {
+                        foods: mutipleMongooseToObject(foods),
+                    })
+                }
+            })
+            .catch((err) => {
+                res.json('Đã xảy ra lỗi!')
+            })
     }
 }
 

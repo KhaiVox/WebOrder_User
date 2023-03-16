@@ -6,7 +6,11 @@ const userController = require('../app/controllers/UserController')
 router.get('/editProfile', userController.editProfile)
 router.put('/editProfile/:id', userController.update)
 
+// giỏ hàng
 router.get('/cart', userController.cart)
+
+// tìm kiếm
+router.get('/search', userController.search)
 
 router.get('/', userController.home)
 
