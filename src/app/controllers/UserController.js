@@ -54,21 +54,13 @@ class UserController {
                         })
                     })
                     .catch(next)
-
-                // Food.find({ type: req.params.slug })
-                //     .then((foods) =>
-                //         res.render('home', {
-                //             foods: mutipleMongooseToObject(foods),
-                //         }),
-                //     )
-                //     .catch(next)
             } else {
                 res.render('login')
             }
         } catch (error) {}
     }
 
-    // [GET] /user/register
+    // [GET] /user/editProfile
     editProfile(req, res, next) {
         try {
             var token = req.cookies.token
@@ -85,39 +77,12 @@ class UserController {
     }
 
     // [PUT] /user/editProfile/:id
-    update(req, res, next) {
-        Account.updateOne({ _id: req.params.id }, req.body)
+    async update(req, res, next) {
+        var token = req.cookies.token
+
+        Account.updateOne({ id_Account: token }, req.body)
             .then(() => res.redirect('/user/editProfile'))
             .catch(next)
-    }
-
-    // [PUT] /user/cart
-    async cart(req, res, next) {
-        try {
-            // , state: true
-            var token = req.cookies.token
-            if (token) {
-                const getCart = await Cart.findOne({ id_Account: token, state: true })
-                const getDetailCart = getCart.detail_Cart
-
-                const getFoodId = getDetailCart.map((item) => item.id_Food)
-                const listFood = []
-                const countFood = getFoodId.length
-                for (let i of getFoodId) {
-                    let food = await Food.find({ _id: i })
-                    listFood.push(...food)
-                }
-
-                res.render('cart', {
-                    cart_info: mongooseToObject(getCart),
-                    getFood: mutipleMongooseToObject(listFood),
-                    getDetailCart,
-                    countFood,
-                }).catch(next)
-            } else {
-                res.render('login')
-            }
-        } catch (error) {}
     }
 
     // [GET] /user/search
