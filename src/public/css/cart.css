@@ -39,7 +39,8 @@
 
 .cart-img {
   width: 55px;
-  height: 55px; }
+  height: 55px;
+  margin-left: -14px; }
 
 .cart-name {
   color: #000;
@@ -76,7 +77,8 @@
 .cart-price {
   font-weight: 400;
   font-size: 1.6rem;
-  margin-top: 8px; }
+  margin-top: 8px;
+  margin-left: 12px; }
 
 .cart-delete:hover {
   color: #a60c0c; }

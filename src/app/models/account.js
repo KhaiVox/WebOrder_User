@@ -16,6 +16,7 @@ const AccountSchema = new Schema(
         phone: { type: String },
         avatar: { type: String },
         deleted: { type: Boolean },
+        createAt: { type: Date, default: Date.now },
     },
     {
         collection: 'account_users',
