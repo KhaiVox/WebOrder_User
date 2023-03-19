@@ -125,7 +125,7 @@
         padding-top: 8px;
     }
     .home-product {
-        margin-top: -27px;
+        margin-top: -20px;
     }
     .pagination-item {
         margin: 0 8px;
@@ -259,12 +259,14 @@
         margin-bottom: 42px;
     }
     .cart-img {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
+        margin: -8px;
     }
     .cart-name,
     .cart-price {
         font-size: 1.5rem;
+        margin-left: 0;
     }
     .cart-body {
         width: 100%;
@@ -276,6 +278,6 @@
         display: none;
     }
     .cart-footer {
-        margin: 32px 0;
+        margin: 32px 12px;
     }
 }

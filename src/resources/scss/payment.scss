@@ -14,14 +14,28 @@
 }
 
 .payment-body {
-    padding: 0 30px;
+    padding: 0 100px;
 }
 
+.payment-wrap {
+    padding-left: 22px;
+    border-left: 1px solid black;
+}
+
+.payment-method {
+    text-align: left;
+    margin-top: 16px;
+}
+
+.payment-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
 
 /* Payment Product */
 
 .product-list-payment {
-    padding-right: 50px;
+    // padding-right: 50px;
 }
 
 .product-payment-item {
@@ -83,39 +97,7 @@
     color: $primary;
 }
 
-
 /* Payment Info */
-
-.payment-list-info {
-    padding-left: 60px;
-    padding-top: 12px;
-    border-left: 2px solid black;
-}
-
-.payment-item {
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 4px 0;
-}
-
-.payment-item p {
-    width: 140px;
-    display: inline-flex;
-}
-
-.payment-item span {
-    margin-left: 18px;
-}
-
-.payment-method {
-    margin-top: 36px;
-}
-
-.payment-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
 
 .form-select-payment {
     width: 80%;
@@ -146,16 +128,15 @@
 }
 
 .payment-button {
-    margin-top: 135px;
+    margin-top: 52px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .payment-quit {
     font-size: 1.6rem;
     font-weight: 400;
-    margin-right: 20px;
     &:hover {
         color: $primary;
     }
@@ -163,6 +144,7 @@
 
 .btn-payment {
     font-weight: 500;
+    font-size: 1.6rem;
     height: 38px;
     color: white;
     margin-left: 12px;

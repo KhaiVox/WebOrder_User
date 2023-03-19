@@ -42,18 +42,18 @@ class CartController {
 
         let cart = await Cart.findOne({ id_Account: token })
         let detailCart = cart.detail_Cart
-        // const check = detailCart.find((cart) => cart.id_Food === id_Food)
-        // for (let i of detailCart) {
-        //     const check = detailCart.find((cart) => cart.id_Food === i.id_Food)
-        //     if (check) {
-        //         return console.log('trung roi')
-        //     } else {
-        //         // detailCart.push({ id_Food, quantity: 1, price })
-        //         return console.log('khong trung')
-        //     }
-        // }
 
-        detailCart.push({ id_Food, quantity: 1, price })
+        let duplicate = false
+        for (let element of detailCart) {
+            if (element.id_Food == id_Food) {
+                element.quantity += 1
+                duplicate = true
+            }
+        }
+        if (!duplicate) {
+            detailCart.push({ id_Food, quantity: 1, price })
+        }
+
         await Cart.findOneAndUpdate(
             {
                 id_Account: token,
@@ -65,27 +65,42 @@ class CartController {
 
     // [GET] /cart/:id/payment
     async payment(req, res, next) {
-        res.render('payment')
-        // const getOrder = await Payment.findOne({ _id: req.params.id })
-        // const getCartID = getOrder.id_Cart
-        // const getCart = await Order.findOne({ _id: getCartID })
-        // const getCustomerID = getCart.id_Account
-        // const getCustomer = await Customer.findOne({ _id: getCustomerID })
-        // const getDetailCart = getCart.detail_Cart
-        // const getFoodId = getDetailCart.map((item) => item.id_Food)
-        // const listFood = []
-        // for (let i of getFoodId) {
-        //     let food = await Food.find({ _id: i })
-        //     listFood.push(...food)
-        // }
-        // res.render('historys/detail', {
-        //     index: index,
-        //     getOrder: mongooseToObject(getOrder),
-        //     getCart: mongooseToObject(getCart),
-        //     getCustomer: mongooseToObject(getCustomer),
-        //     getFood: mutipleMongooseToObject(listFood),
-        //     getDetailCart,
-        // })
+        try {
+            var token = req.cookies.token
+            if (token) {
+                const getCart = await Cart.findOne({ id_Account: token, state: true })
+                const getCartID = getCart._id
+
+                const getDetailCart = getCart.detail_Cart
+                const getFoodId = getDetailCart.map((item) => item.id_Food)
+                const listFood = []
+                for (let i of getFoodId) {
+                    let food = await Food.find({ _id: i })
+                    listFood.push(...food)
+                }
+
+                // res.json(getCartID)
+                res.render('payment', {
+                    getCart: mongooseToObject(getCart),
+                    getFood: mutipleMongooseToObject(listFood),
+                    getDetailCart,
+                }).catch(next)
+
+                // const getOrder = await Payment.findOne({ _id: req.params.id })
+                // const getCart = await Order.findOne({ _id: getCartID })
+                // const getCustomerID = getCart.id_Account
+                // const getCustomer = await Customer.findOne({ _id: getCustomerID })
+
+                // res.render('historys/detail', {
+                //     index: index,
+                //     getOrder: mongooseToObject(getOrder),
+                //     getCart: mongooseToObject(getCart),
+                //     getCustomer: mongooseToObject(getCustomer),
+                // })
+            } else {
+                res.render('login')
+            }
+        } catch (error) {}
     }
 }
 

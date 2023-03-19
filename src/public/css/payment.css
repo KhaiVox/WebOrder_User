@@ -1,0 +1,124 @@
+@charset "UTF-8";
+.payment {
+  margin-top: 24px; }
+
+.payment-header {
+  text-align: center; }
+
+.payment-heading {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #000; }
+
+.payment-body {
+  padding: 0 100px; }
+
+.payment-wrap {
+  padding-left: 22px;
+  border-left: 1px solid black; }
+
+.payment-method {
+  text-align: left;
+  margin-top: 16px; }
+
+.payment-title {
+  font-size: 1.6rem;
+  font-weight: 600; }
+
+/* Payment Product */
+.product-payment-item {
+  text-align: center;
+  margin-bottom: 8px; }
+
+.product-payment-img {
+  width: 50px;
+  position: relative;
+  top: -5px; }
+
+.product-payment-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60px; }
+
+.product-payment-wrap--right {
+  justify-content: space-between; }
+
+.product-payment-name {
+  text-align: left; }
+
+.product-payment-wrap strong {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 18px; }
+
+.product-payment-name,
+.product-payment-quantity,
+.product-payment-price {
+  font-size: 1.6rem;
+  font-weight: 500; }
+
+.payment-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid black; }
+
+.payment-total-title {
+  font-size: 1.8rem;
+  font-weight: 500; }
+
+.payment-total-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1c6758; }
+
+/* Payment Info */
+.form-select-payment {
+  width: 80%;
+  height: 36px;
+  padding: 0;
+  border: none;
+  user-select: none; }
+
+.payment-check {
+  display: block; }
+
+.payment-check input {
+  zoom: 1.4;
+  margin-top: 12px;
+  /* Màu khi check */
+  accent-color: var(--light-red-color); }
+
+.payment-check span {
+  font-size: 1.6rem;
+  font-weight: 400;
+  position: relative;
+  top: -4px;
+  margin-left: 5px;
+  user-select: none; }
+
+.payment-button {
+  margin-top: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.payment-quit {
+  font-size: 1.6rem;
+  font-weight: 400; }
+  .payment-quit:hover {
+    color: #1c6758; }
+
+.btn-payment {
+  font-weight: 500;
+  font-size: 1.6rem;
+  height: 38px;
+  color: white;
+  margin-left: 12px;
+  background-color: #1c6758; }
+  .btn-payment:hover {
+    color: white;
+    background-color: #1c6758; }

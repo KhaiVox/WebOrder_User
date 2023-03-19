@@ -2,7 +2,6 @@
     <div class='container'>
         <div class='cart-header'>
             <h1 class='create-header'>Giỏ Hàng Của Bạn ({{countFood}})</h1>
-            <h4>{{cart_info.total}}</h4>
         </div>
 
         <div class='cart-body'>
@@ -52,7 +51,7 @@
                                         />
                                     </div>
                                     <div class='cart-wrap-item'>
-                                        <div class='cart-price'>{{price}}.000 Đ</div>
+                                        <div class='cart-price'>{{price}}.000 </div>
                                     </div>
                                     <i class='cart-delete fa-solid fa-trash'></i>
                                 </div>
@@ -63,12 +62,12 @@
             </div>
             <div class='cart-footer'>
                 <div class='cart-total'>
-                    <div class='cart-title-total'>Số lượng : <span>12</span></div>
+                    <div class='cart-title-total'>Số lượng : <span>{{cart_info.total}}</span></div>
                     <div class='cart-title-total'>Tổng tiền : <span>{{cart_info.total}}.000 Đ</span></div>
                 </div>
                 <div class='cart-btn'>
                     <a href='/user' class='cart-next'>Tiếp tục mua sắm</a>
-                    <a href='/cart/fdfd/payment'>
+                    <a href='/cart/{{cart_info._id}}'>
                         <div class='cart-payment'>Đặt hàng</div>
                     </a>
                 </div>
