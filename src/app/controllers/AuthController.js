@@ -18,13 +18,6 @@ class AuthController {
             .then((data) => {
                 if (data) {
                     let token = data._id
-                    //  jwt.sign(
-                    //     {
-                    //         _id: data._id,
-                    //         admin: true,
-                    //     },
-                    //     'mk',
-                    // )
                     res.json({
                         message: 'Thành công',
                         token: token,

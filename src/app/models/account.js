@@ -9,7 +9,7 @@ const Schema = mongoose.Schema
 
 const AccountSchema = new Schema(
     {
-        username: { type: String },
+        username: { type: String, unique: true },
         password: { type: String },
         fullname: { type: String },
         address: { type: String },

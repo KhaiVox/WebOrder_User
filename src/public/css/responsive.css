@@ -190,4 +190,19 @@
   .cart-delete {
     display: none; }
   .cart-footer {
-    margin: 32px 12px; } }
+    margin: 32px 12px; }
+  /* Payment */
+  .payment-body {
+    padding: 0; }
+  .col-name {
+    width: 60%; }
+  .col-price {
+    width: 40%; }
+  .payment-wrap {
+    width: 100%;
+    padding: 0;
+    margin-top: 32px;
+    border: none;
+    padding: 0 12px; }
+  .payment-button {
+    margin-top: 32px; } }

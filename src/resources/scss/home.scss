@@ -508,7 +508,7 @@
     padding: 0px 6px;
     font-size: 1.4rem;
     border-radius: 10px;
-    border: 2px solid #b80a36;
+    border: 2px solid $dark-color;
     color: $primary-color;
     background-color: $white;
 }
@@ -543,30 +543,9 @@
     border-color: transparent transparent $white transparent;
 }
 
-.header__cart-list--no-cart {
+.header__cart-list {
     padding: 12px 0;
 }
-
-.header__cart-list--no-cart .header__cart-no-cart-img,
-.header__cart-list--no-cart .header__cart-list--no-cart-msg {
-    /* display: block; */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.header__cart-no-cart-img {
-    width: 55%;
-    display: none;
-}
-
-.header__cart-list--no-cart-msg {
-    padding: 12px;
-    margin-top: 12px;
-    font-size: 1.4rem;
-    display: none;
-}
-
-/* Has Cart */
 
 .header__cart-heading {
     color: #999;

@@ -17,24 +17,33 @@ class UserController {
                 const user = await Account.findOne({ _id: token })
 
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
-                const getDetailCart = getCart.detail_Cart
+                if (getCart) {
+                    const getDetailCart = getCart.detail_Cart
 
-                const getFoodId = getDetailCart.map((item) => item.id_Food)
-                const listFood = []
-                const countFood = getFoodId.length
-                for (let i of getFoodId) {
-                    let food = await Food.find({ _id: i })
-                    listFood.push(...food)
+                    const getFoodId = getDetailCart.map((item) => item.id_Food)
+                    const listFood = []
+                    const countFood = getFoodId.length
+                    for (let i of getFoodId) {
+                        let food = await Food.find({ _id: i })
+                        listFood.push(...food)
+                    }
+
+                    res.render('home', {
+                        foods: mutipleMongooseToObject(foods),
+                        user: mongooseToObject(user),
+                        cart_info: mongooseToObject(getCart),
+                        getFood: mutipleMongooseToObject(listFood),
+                        getDetailCart,
+                        countFood,
+                    })
+                } else {
+                    res.render('home', {
+                        foods: mutipleMongooseToObject(foods),
+                        user: mongooseToObject(user),
+                        countFood: 0,
+                        notifyEmpty: 'Chưa có sản phẩm.',
+                    })
                 }
-
-                res.render('home', {
-                    foods: mutipleMongooseToObject(foods),
-                    user: mongooseToObject(user),
-                    cart_info: mongooseToObject(getCart),
-                    getFood: mutipleMongooseToObject(listFood),
-                    getDetailCart,
-                    countFood,
-                })
             } else {
                 res.render('login')
             }
@@ -95,7 +104,7 @@ class UserController {
             .then((foods) => {
                 if (foods == '') {
                     res.render('home', {
-                        title: 'Không có sản phẩm nào !!',
+                        title: 'Không có sản phẩm !!!',
                     })
                 } else {
                     res.render('home', {

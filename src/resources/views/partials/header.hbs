@@ -166,7 +166,7 @@
                 <div class='header__search-input-wrap'>
                     <input type='text' name="text" class='header__search-input' placeholder='Nhập để tìm kiếm' />
                     <!-- Search History -->
-                    <div class='header__search-history'>
+                    {{!-- <div class='header__search-history'>
                         <div class='header__search-history-heading'>Lịch sử tìm kiếm</div>
                         <ul class='header__search-history-list'>
                             <li class='header__search-history-item'>
@@ -179,7 +179,7 @@
                                 <a href=''>Sữa rửa mặt</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
                 <button type="submit" class='header__search-btn'>
                     <i class='header__search-btn-icon fas fa-search'></i>
@@ -196,13 +196,7 @@
             <div class='header__cart-wrap'>
                 <i class='header__cart-icon fas fa-shopping-cart'></i>
                 <span class='header__cart-notice'>{{countFood}}</span>
-                <!-- No Cart: header__cart-list--no-cart -->
-                <div class='header__cart-list header__cart-list--no-cart'>
-                    <img src='/img/no_cart.png' alt='' class='header__cart-no-cart-img' />
-                    <span class='header__cart-list--no-cart-msg'>
-                        Chưa có sản phẩm
-                    </span>
-                    <!-- Has Cart -->
+                <div class='header__cart-list'>
                     <div class='header__cart-heading'>Sản phẩm đã thêm</div>
                     <ul class='header__cart-list-item'>
                         {{#each getFood}}
@@ -231,6 +225,7 @@
                             </li>
                         {{/each}}
                     </ul>
+                    <h1>{{notifyEmpty}}</h1>
                     <a href='/cart' class='btn btn-primary header__cart-item-view-cart'>Xem giỏ hàng</a>
                 </div> 
             </div>

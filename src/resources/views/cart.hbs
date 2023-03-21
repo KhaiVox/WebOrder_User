@@ -24,6 +24,7 @@
             <div class='cart-list'>
                 <div class='container'>
                     <div class='row'>
+                        <h1>{{title}}</h1>
                         <div class='col-7'>
                             {{#each getFood}}
                                 <div class='cart-wrap'>
@@ -68,7 +69,7 @@
                 <div class='cart-btn'>
                     <a href='/user' class='cart-next'>Tiếp tục mua sắm</a>
                     <a href='/cart/{{cart_info._id}}'>
-                        <div class='cart-payment'>Đặt hàng</div>
+                        <div class='cart-payment'>Đặt món</div>
                     </a>
                 </div>
             </div>

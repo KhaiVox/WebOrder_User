@@ -1,6 +1,7 @@
 const Food = require('../models/product')
 const Account = require('../models/account')
 const Cart = require('../models/cart')
+const Payment = require('../models/payment')
 
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
@@ -13,22 +14,29 @@ class CartController {
             var token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
-                const getDetailCart = getCart.detail_Cart
+                if (getCart) {
+                    const getDetailCart = getCart.detail_Cart
 
-                const getFoodId = getDetailCart.map((item) => item.id_Food)
-                const listFood = []
-                const countFood = getFoodId.length
-                for (let i of getFoodId) {
-                    let food = await Food.find({ _id: i })
-                    listFood.push(...food)
+                    const getFoodId = getDetailCart.map((item) => item.id_Food)
+                    const listFood = []
+                    const countFood = getFoodId.length
+                    for (let i of getFoodId) {
+                        let food = await Food.find({ _id: i })
+                        listFood.push(...food)
+                    }
+
+                    res.render('cart', {
+                        cart_info: mongooseToObject(getCart),
+                        getFood: mutipleMongooseToObject(listFood),
+                        getDetailCart,
+                        countFood,
+                    }).catch(next)
+                } else {
+                    res.render('cart', {
+                        title: 'Chưa có sản phẩm.',
+                        countFood: 0,
+                    }).catch(next)
                 }
-
-                res.render('cart', {
-                    cart_info: mongooseToObject(getCart),
-                    getFood: mutipleMongooseToObject(listFood),
-                    getDetailCart,
-                    countFood,
-                }).catch(next)
             } else {
                 res.render('login')
             }
@@ -63,8 +71,8 @@ class CartController {
         res.redirect('/user')
     }
 
-    // [GET] /cart/:id/payment
-    async payment(req, res, next) {
+    // [GET] /cart/:id
+    async detailPayment(req, res, next) {
         try {
             var token = req.cookies.token
             if (token) {
@@ -79,10 +87,13 @@ class CartController {
                     listFood.push(...food)
                 }
 
-                // res.json(getCartID)
+                const payment = await Payment.findOne({ id_Cart: getCartID })
+
+                // res.json(payment.)
                 res.render('payment', {
                     getCart: mongooseToObject(getCart),
                     getFood: mutipleMongooseToObject(listFood),
+                    getPayment: mongooseToObject(payment),
                     getDetailCart,
                 }).catch(next)
 
@@ -101,6 +112,11 @@ class CartController {
                 res.render('login')
             }
         } catch (error) {}
+    }
+
+    // [GET] /cart/payment
+    async payment(req, res, next) {
+        res.json(req.body)
     }
 }
 
