@@ -7,7 +7,7 @@
                 <div class='product-list-payment'>
                     <div class='product-payment-item'>
                         <div class='row'>
-                            <div class='col-5'>
+                            <div class='col-5 col-name'>
                                 {{#each getFood}}
                                     <div class='product-payment-wrap'>
                                         <img src={{img}} class='product-payment-img' />
@@ -15,51 +15,51 @@
                                     </div>
                                 {{/each}}
                             </div>
-                            <div class='col-2' style='padding-right: 24px;'>
+                            <div class='col-2 col-price' style='padding-right: 24px;'>
                                 {{#each getDetailCart}}
                                     <div class='product-payment-wrap product-payment-wrap--right'>
-                                        <strong class='product-payment-quantity'>x {{quantity}}</strong>
-                                        <strong class='product-payment-price'>{{price}}.000 đ</strong>
+                                        <strong class='product-payment-quantity'><strong>x</strong>
+                                            {{quantity}}</strong>
+                                        <strong class='product-payment-price'>{{price}}.000</strong>
                                     </div>
                                 {{/each}}
                             </div>
                             <div class='col-5 payment-wrap'>
-                                <div class='payment-method'>
-                                    <div class='payment-title'>Phương thức thanh toán</div>
-                                    <div hidden class='value-type-payment'>{{getOrder.payment_Method}}</div>
-                                    <label class='form-select-payment'>
-                                        <div class='payment-check'>
-                                            <input type='radio' name='radio' checked />
-                                            <span>Thanh toán khi nhận hàng</span>
-                                        </div>
-                                    </label>
-                                    <label class='form-select-payment'>
-                                        <div class='payment-check'>
-                                            <input type='radio' name='radio' />
-                                            <span>Thanh toán qua ví Momo</span>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class='payment-total'>
-                                    <div class='payment-total-title'>Tổng tiền: </div>
-                                    <strong class='payment-total-number'>{{getCart.total}}.000 đ</strong>
-                                </div>
-                                <!-- Payment Info -->
-                                <div class='payment-button'>
-                                    <a href='/cart'>
-                                        <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
-                                    </a>
-                                    <form method='POST' action='/history/{{getOrder._id}}/cancel?_method=PUT'>
-                                        <input
-                                            hidden
-                                            name='confirm_Order'
-                                            id='confirm_Order--cancel'
-                                            value='Đã duyệt'
-                                        />
-                                        <input hidden name='order_Status' id='order_Status--cancel' value='Đã duyệt' />
+                                <form method='POST' action='/cart/payment'>
+                                    <div class='payment-method'>
+                                        <div class='payment-title'>Phương thức thanh toán</div>
+                                        <div hidden class='value-type-payment'>{{getOrder.payment_Method}}</div>
+                                        <label class='form-select-payment'>
+                                            <div class='payment-check'>
+                                                <input type='radio' name='payment_Method' value='Momo' checked />
+                                                <span>Thanh toán qua ví Momo</span>
+                                            </div>
+                                        </label>
+                                        <label class='form-select-payment'>
+                                            <div class='payment-check'>
+                                                <input type='radio' name='payment_Method' value='Cash' />
+                                                <span>Thanh toán khi nhận hàng</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class='payment-total'>
+                                        <div class='payment-total-title'>Tổng tiền: </div>
+                                        <input type='hidden' name='total' value={{getPayment.total}} />
+                                        <strong class='payment-total-number'>{{getPayment.total}}.000</strong>
+                                    </div>
+                                    <!-- Payment Info -->
+                                    <div class='payment-button'>
+                                        <a href='/cart'>
+                                            <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
+                                        </a>
+                                        <input hidden name='id_Cart' id='id_Cart' value={{getCart._id}} />
+                                        <input hidden name='confirm_Order' id='confirm_Order' value='Chưa duyệt' />
+                                        <input hidden name='order_Status' id='order_Status' value='Chưa duyệt' />
+                                        <input hidden name='state' id='state' value='false' />
+
                                         <button type='submit' class='btn btn-payment'>Thanh toán</button>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

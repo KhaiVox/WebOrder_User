@@ -7,7 +7,7 @@ mongoose.connect('mongodb+srv://khaiduchoa:4jOHcqMOG1bsYOJ2@cluster0.e8bk9pu.mon
 
 const Schema = mongoose.Schema
 
-const CartSchema = new Schema(
+const PaymentSchema = new Schema(
     {
         id_Cart: { type: String },
         id_DetailVoucher: { type: String },
@@ -21,9 +21,9 @@ const CartSchema = new Schema(
         createAt: { type: Date, default: Date.now },
     },
     {
-        collection: 'carts',
+        collection: 'payments',
     },
 )
 
-const CartModel = mongoose.model('cart', CartSchema)
-module.exports = CartModel
+const PaymentModel = mongoose.model('payment', PaymentSchema)
+module.exports = PaymentModel

@@ -50,7 +50,9 @@
 .product-payment-wrap strong {
   font-size: 1.6rem;
   font-weight: 600;
-  margin-left: 18px; }
+  margin-left: 18px;
+  display: flex;
+  align-items: center; }
 
 .product-payment-name,
 .product-payment-quantity,
@@ -84,7 +86,8 @@
   user-select: none; }
 
 .payment-check {
-  display: block; }
+  display: block;
+  cursor: pointer; }
 
 .payment-check input {
   zoom: 1.4;

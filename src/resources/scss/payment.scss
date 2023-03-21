@@ -68,6 +68,8 @@
     font-size: 1.6rem;
     font-weight: 600;
     margin-left: 18px;
+    display: flex;
+    align-items: center;
 }
 
 .product-payment-name,
@@ -109,6 +111,7 @@
 
 .payment-check {
     display: block;
+    cursor: pointer;
 }
 
 .payment-check input {
