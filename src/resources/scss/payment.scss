@@ -96,7 +96,7 @@
 .payment-total-number {
     font-size: 2rem;
     font-weight: 700;
-    color: $primary;
+    color: $primary-color;
 }
 
 /* Payment Info */
@@ -151,9 +151,9 @@
     height: 38px;
     color: white;
     margin-left: 12px;
-    background-color: $primary;
+    background-color: $primary-color;
     &:hover {
         color: white;
-        background-color: $primary;
+        background-color: $dark-color;
     }
 }

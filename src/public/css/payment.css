@@ -75,7 +75,7 @@
 .payment-total-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #1c6758; }
+  color: #004262; }
 
 /* Payment Info */
 .form-select-payment {
@@ -121,7 +121,7 @@
   height: 38px;
   color: white;
   margin-left: 12px;
-  background-color: #1c6758; }
+  background-color: #004262; }
   .btn-payment:hover {
     color: white;
-    background-color: #1c6758; }
+    background-color: #022232; }

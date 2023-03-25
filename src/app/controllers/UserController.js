@@ -116,6 +116,11 @@ class UserController {
                 res.json('Đã xảy ra lỗi!')
             })
     }
+
+    // [GET] /user/history
+    history(req, res, next) {
+        res.render('history')
+    }
 }
 
 module.exports = new UserController()

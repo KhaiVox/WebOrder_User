@@ -526,7 +526,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: calc(100% - 2px);
   right: -10px;
-  width: 400px;
+  width: 350px;
   cursor: default;
   border-radius: 2px;
   background-color: white;
@@ -578,7 +578,7 @@ body::-webkit-scrollbar-thumb {
 .header__cart-img {
   width: 42px;
   height: 42px;
-  margin: 12px; }
+  margin: 6px 10px; }
 
 .header__cart-item-info {
   width: 100%;
@@ -633,7 +633,8 @@ body::-webkit-scrollbar-thumb {
   float: right;
   padding: 10px;
   font-weight: 400;
-  margin-right: 25px;
+  margin-top: 8px;
+  margin-right: 18px;
   text-decoration: none; }
 
 .header__cart-item-view-cart:hover {
@@ -808,6 +809,7 @@ body::-webkit-scrollbar-thumb {
 .home-product-item__price-number {
   margin-left: 5px;
   font-size: 1.6rem;
+  font-weight: 600;
   color: #004262; }
 
 .home-product-btn {
@@ -2189,7 +2191,7 @@ body::-webkit-scrollbar-thumb {
 .payment-total-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #1c6758; }
+  color: #004262; }
 
 /* Payment Info */
 .form-select-payment {
@@ -2235,10 +2237,27 @@ body::-webkit-scrollbar-thumb {
   height: 38px;
   color: white;
   margin-left: 12px;
-  background-color: #1c6758; }
+  background-color: #004262; }
   .btn-payment:hover {
     color: white;
-    background-color: #1c6758; }
+    background-color: #022232; }
+
+#table-public--history {
+  position: relative; }
+
+.form-action--history {
+  margin-top: -12px; }
+
+.pill-title-item--purchase {
+  position: absolute;
+  top: 20px;
+  right: 22px; }
+
+.modal-footer--modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px; }
 
 /* Mobile & Tablet */
 @media (max-width: 1023px) {

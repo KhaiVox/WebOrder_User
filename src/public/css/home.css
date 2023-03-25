@@ -435,7 +435,7 @@
   position: absolute;
   top: calc(100% - 2px);
   right: -10px;
-  width: 400px;
+  width: 350px;
   cursor: default;
   border-radius: 2px;
   background-color: white;
@@ -487,7 +487,7 @@
 .header__cart-img {
   width: 42px;
   height: 42px;
-  margin: 12px; }
+  margin: 6px 10px; }
 
 .header__cart-item-info {
   width: 100%;
@@ -542,7 +542,8 @@
   float: right;
   padding: 10px;
   font-weight: 400;
-  margin-right: 25px;
+  margin-top: 8px;
+  margin-right: 18px;
   text-decoration: none; }
 
 .header__cart-item-view-cart:hover {
@@ -717,6 +718,7 @@
 .home-product-item__price-number {
   margin-left: 5px;
   font-size: 1.6rem;
+  font-weight: 600;
   color: #004262; }
 
 .home-product-btn {

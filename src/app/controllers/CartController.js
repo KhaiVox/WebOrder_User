@@ -89,25 +89,12 @@ class CartController {
 
                 const payment = await Payment.findOne({ id_Cart: getCartID })
 
-                // res.json(payment.)
                 res.render('payment', {
                     getCart: mongooseToObject(getCart),
                     getFood: mutipleMongooseToObject(listFood),
                     getPayment: mongooseToObject(payment),
                     getDetailCart,
                 }).catch(next)
-
-                // const getOrder = await Payment.findOne({ _id: req.params.id })
-                // const getCart = await Order.findOne({ _id: getCartID })
-                // const getCustomerID = getCart.id_Account
-                // const getCustomer = await Customer.findOne({ _id: getCustomerID })
-
-                // res.render('historys/detail', {
-                //     index: index,
-                //     getOrder: mongooseToObject(getOrder),
-                //     getCart: mongooseToObject(getCart),
-                //     getCustomer: mongooseToObject(getCustomer),
-                // })
             } else {
                 res.render('login')
             }
@@ -116,7 +103,19 @@ class CartController {
 
     // [GET] /cart/payment
     async payment(req, res, next) {
-        res.json(req.body)
+        const { id_Cart, payment_Method, confirm_Order, order_Status, state } = req.body
+
+        Payment.create({
+            id_Cart,
+            payment_Method,
+            confirm_Order,
+            order_Status,
+            state,
+        })
+            .then(() => res.redirect('/user'))
+            .catch(next)
+        // res.json(payment_Method)
+        // res.json(req.body)
     }
 }
 
