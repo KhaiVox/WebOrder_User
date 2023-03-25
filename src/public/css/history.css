@@ -1,0 +1,19 @@
+#table-public--history {
+  position: relative; }
+
+.form-action--history {
+  margin-top: -12px; }
+
+.pill-title-item--purchase {
+  position: absolute;
+  top: 20px;
+  right: 22px; }
+
+.modal-footer--modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px; }
+
+.price-wrap {
+  display: flex; }

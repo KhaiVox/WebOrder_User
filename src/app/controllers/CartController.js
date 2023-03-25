@@ -25,11 +25,17 @@ class CartController {
                         listFood.push(...food)
                     }
 
+                    let count = 0
+                    for (let element of getDetailCart) {
+                        count += element.quantity
+                    }
+
                     res.render('cart', {
                         cart_info: mongooseToObject(getCart),
                         getFood: mutipleMongooseToObject(listFood),
                         getDetailCart,
                         countFood,
+                        count,
                     }).catch(next)
                 } else {
                     res.render('cart', {
@@ -48,27 +54,49 @@ class CartController {
         var token = req.cookies.token
         const { id_Food, price } = req.body
 
-        let cart = await Cart.findOne({ id_Account: token })
-        let detailCart = cart.detail_Cart
+        // chuyển đổi price thành kiểu number
+        let priceConvert = parseInt(price)
 
-        let duplicate = false
-        for (let element of detailCart) {
-            if (element.id_Food == id_Food) {
-                element.quantity += 1
-                duplicate = true
+        let cart = await Cart.findOne({ id_Account: token, state: true })
+        if (cart) {
+            // cập nhật sản phẩm trong giỏ và tổng tiền
+            let detailCart = cart.detail_Cart
+            let newTotal = cart.total + priceConvert
+
+            // nếu sản phẩm đã có trong giỏ hàng sẽ cho tăng số lượng
+            let duplicate = false
+            for (let element of detailCart) {
+                if (element.id_Food == id_Food) {
+                    element.quantity += 1
+                    duplicate = true
+                }
             }
-        }
-        if (!duplicate) {
-            detailCart.push({ id_Food, quantity: 1, price })
-        }
+            if (!duplicate) {
+                detailCart.push({ id_Food, quantity: 1, price: priceConvert })
+            }
 
-        await Cart.findOneAndUpdate(
-            {
+            await Cart.findOneAndUpdate(
+                {
+                    id_Account: token,
+                    state: true,
+                },
+                { detail_Cart: detailCart, total: newTotal },
+            )
+            res.redirect('/user')
+        } else {
+            // Chưa có giỏ hàng sẽ tiến hành tạo mới
+            const detail_Cart = []
+            detail_Cart.push({ id_Food, quantity: 1, price: priceConvert })
+
+            Cart.create({
                 id_Account: token,
-            },
-            { detail_Cart: detailCart },
-        )
-        res.redirect('/user')
+                detail_Cart,
+                total: priceConvert,
+                state: true,
+            })
+                .then(() => res.redirect('/user'))
+                .catch(next)
+        }
     }
 
     // [GET] /cart/:id
@@ -103,19 +131,30 @@ class CartController {
 
     // [GET] /cart/payment
     async payment(req, res, next) {
+        var token = req.cookies.token
         const { id_Cart, payment_Method, confirm_Order, order_Status, state } = req.body
 
-        Payment.create({
+        // reset lại giỏ hàng sau khi thanh toán
+        const getCart = await Cart.findOneAndUpdate(
+            {
+                id_Account: token,
+                state: true,
+            },
+            { state: false },
+        )
+
+        let totalPayment = getCart.total
+
+        await Payment.create({
             id_Cart,
             payment_Method,
             confirm_Order,
             order_Status,
+            total: totalPayment,
             state,
         })
             .then(() => res.redirect('/user'))
             .catch(next)
-        // res.json(payment_Method)
-        // res.json(req.body)
     }
 }
 

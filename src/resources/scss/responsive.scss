@@ -300,4 +300,10 @@
     .payment-button {
         margin-top: 32px;
     }
+
+    // Data table
+    table.dataTable td,
+    table.dataTable th {
+        padding: 5px;
+    }
 }
