@@ -59,7 +59,8 @@ class AuthController {
                         fullname: fullname,
                         deleted: false,
                     }).then((data) => {
-                        res.json('Tạo tài khoản thành công!')
+                        res.redirect('login')
+                        // res.json('Tạo tài khoản thành công!')
                     })
                 }
             })

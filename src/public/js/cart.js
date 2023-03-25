@@ -1,3 +1,15 @@
+// Khi giỏ hàng không có sản phẩm sẽ ẩn đi những button, title mô tả
+
+const notifyCartEmpty = document.querySelector('.notify-cart')
+const desHeader = document.querySelector('.cart-heading')
+const desFooter = document.querySelector('.cart-footer')
+const btnViewCart = document.querySelector('.header__cart-item-view-cart')
+
+if (notifyCartEmpty.innerText == 'Chưa có sản phẩm.') {
+    desHeader.classList.add('hidden')
+    desFooter.classList.add('hidden')
+}
+
 // function updatePrice(input) {
 //     let value = input.value
 //     let valueIndex = input.getAttribute('data-id')
@@ -32,15 +44,3 @@
 //     }
 //     quantity.innerText = countQtt
 // }
-
-// Khi giỏ hàng không có sản phẩm sẽ ẩn đi những button, title mô tả
-
-const notifyCartEmpty = document.querySelector('.notify-cart')
-const desHeader = document.querySelector('.cart-heading')
-const desFooter = document.querySelector('.cart-footer')
-const btnViewCart = document.querySelector('.header__cart-item-view-cart')
-
-if (notifyCartEmpty.innerText == 'Chưa có sản phẩm.') {
-    desHeader.classList.add('hidden')
-    desFooter.classList.add('hidden')
-}

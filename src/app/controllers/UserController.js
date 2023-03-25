@@ -1,6 +1,7 @@
 const Food = require('../models/product')
 const Account = require('../models/account')
 const Cart = require('../models/cart')
+const Payment = require('../models/payment')
 
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
@@ -118,8 +119,24 @@ class UserController {
     }
 
     // [GET] /user/history
-    history(req, res, next) {
-        res.render('history')
+    async history(req, res, next) {
+        const getPayment = await Payment.find({ $or: [{ order_Status: 'Hoàn tất' }, { order_Status: 'Đã hủy' }] })
+        // const getPaymentSuccess = await Payment.find({ order_Status: 'Hoàn tất' })
+        // let totalRevenue = 0
+
+        // getPaymentSuccess.map((item) => {
+        //     totalRevenue += item.total
+        // })
+        // getPayment.map((item) => {
+        //     const getCart.pu = item
+        // })
+
+        res.json(getCart)
+
+        // res.render('history', {
+        //     getPayment: mutipleMongooseToObject(getPayment),
+        //     // totalRevenue,
+        // })
     }
 }
 

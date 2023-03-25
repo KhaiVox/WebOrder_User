@@ -2,48 +2,41 @@
     <h1 class='create-header'>Lịch Sử Đơn Đặt ({{countFood}})</h1>
 </div>
 
-<div class='form-detail form-detail--order'>
+<div class='form-detail'>
     <table id='table-history' class='table table-public--history' style='width:100%'>
         <thead>
             <tr>
                 <th class='list-item-heading--table'>STT</th>
-                <th class='list-item-heading--table'>Thời gian đặt</th>
+                <th class='list-item-heading--table hide-on-mobile'>Thời gian đặt</th>
                 <th class='list-item-heading--table'>Tổng tiền</th>
-                <th class='list-item-heading--table'>Phương thức TT</th>
+                <th class='list-item-heading--table'>Phương thức</th>
+                <th class='list-item-heading--table'>Trạng thái</th>
                 <th class='list-item-heading--table'>Chi tiết</th>
             </tr>
         </thead>
+
         <tbody>
-            {{#each getHistory}}
+            {{#each getPayment}}
                 <tr>
                     <td class='list-item-des'>{{sum @index 1}}</td>
-                    <td class='list-item-des day_value'>{{createAt}}</td>
+                    <td class='list-item-des day_value hide-on-mobile'>{{createdAt}}</td>
                     <td class='list-item-des'>
                         <div class='price-wrap'>
                             <h4>{{total}}</h4>
                             <h4 class='number-total'>.000 đ</h4>
                         </div>
                     </td>
-                    <td class='list-item-des'>Tiền mặt</td>
-                    <td class='list-item-des'>
-                        <a
-                            href='#'
-                            data-bs-toggle='modal'
-                            data-bs-target='#delete-course-modal'
-                            data-id='{{_id}}'
-                            src='{{@index}}'
-                            onclick='loadDetail(this)'
-                        >
-                            Nhấn để xem
-                        </a>
-                    </td>
+                    <td class='list-item-des'>{{payment_Method}}</td>
+                    <td class='list-item-des'><div class='btn-status'>{{order_Status}}</div></td>
+                    <td class='list-item-des'><a class='btn-detail' href='/history/{{_id}}/detail'>
+                            {{! Nhấn để xem }}
+                            Xem
+                        </a></td>
                 </tr>
-                {{!-- {{else}}
+            {{else}}
                 <tr>
-                    <div class='notify'>
-                        Chưa có đơn hàng nào.
-                        <a href='/home'>Nhấn để thêm</a></div>
-                </tr> --}}
+                    <div class='notify'> Chưa có đơn hàng nào. <a href='/user'>Nhấn để thêm</a></div>
+                </tr>
             {{/each}}
         </tbody>
     </table>
