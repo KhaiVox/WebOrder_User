@@ -96,7 +96,7 @@
                         <a href=''>Đơn mua</a>
                     </li>
                     <li class='header__navbar-user-item'>
-                        <a href=''>Lịch sử</a>
+                        <a href='/user/history'>Lịch sử</a>
                     </li>
                     <li class='header__navbar-user-item header__navbar-user-item--seperate'>
                         <a href='/deleteCookie'>Đăng xuất</a>
@@ -200,29 +200,30 @@
                     <div class='header__cart-heading'>Sản phẩm đã thêm</div>
                     <ul class='header__cart-list-item'>
                         {{#each getFood}}
-                            <li class='header__cart-item'>
-                                <img
-                                    src={{img}}
-                                    alt={{name}}
-                                    class='header__cart-img'
-                                />
-                                <div class='header__cart-item-info'>
-                                    <div class='header__cart-item-head'>
-                                        <h5 class='header__cart-item-name'>{{name}}
-                                            K/DA</h5>
-                                        <span class='header__cart-item-price'>959.000đ</span>
-                                    </div>
-                                    <div class='header__cart-item-body'>
-                                        <div class='header__cart-item-price-wrap'>
-                                            <span class='header__cart-item-description'>
-                                                Số lượng:
-                                            </span>
-                                            <span class='header__cart-item-qnt'>1</span>
+                            <a href="/cart">
+                                <li class='header__cart-item'>
+                                    <img
+                                        src={{img}}
+                                        alt={{name}}
+                                        class='header__cart-img'
+                                    />
+                                    <div class='header__cart-item-info'>
+                                        <div class='header__cart-item-head'>
+                                            <h5 class='header__cart-item-name'>{{name}}
+                                                K/DA</h5>
                                         </div>
-                                        <span class='header__cart-item-remove'>Xóa</span>
+                                        {{!-- <div class='header__cart-item-body'>
+                                            <div class='header__cart-item-price-wrap'>
+                                                <span class='header__cart-item-description'>
+                                                    Số lượng:
+                                                </span>
+                                                <span class='header__cart-item-qnt'>1</span>
+                                            </div>
+                                            <span class='header__cart-item-remove'>Xóa</span>
+                                        </div> --}}
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            </a>
                         {{/each}}
                     </ul>
                     <h1>{{notifyEmpty}}</h1>

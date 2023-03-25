@@ -18,7 +18,7 @@ const PaymentSchema = new Schema(
         state: { type: Boolean },
         total: { type: Number },
         point: { type: Boolean },
-        createAt: { type: Date, default: Date.now },
+        createdAt: { type: Date, default: Date.now },
     },
     {
         collection: 'payments',
