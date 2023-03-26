@@ -1,0 +1,86 @@
+<div class='payment'>
+    <div class='container'>
+        <div class='create-header cart-header'>Đơn hàng của bạn</div>
+        <div class='process-order'>
+            <ul class='process-line'>
+                <li class='process-line-item'>
+                    1
+                </li>
+                <li class='process-line-item'>2</li>
+                <li class='process-line-item'>3</li>
+                <li class='process-line-item'>4</li>
+            </ul>
+        </div>
+        <div class='payment-body'>
+            <div class='row'>
+                <!-- Payment Product -->
+                <div class='product-list-payment'>
+                    <div class='product-payment-item'>
+                        <div class='row'>
+                            <div class='col-5 col-name'>
+                                {{#each getFood}}
+                                    <div class='product-payment-wrap'>
+                                        <img src={{img}} class='product-payment-img' />
+                                        <strong class='product-payment-name'>{{name}}</strong>
+                                    </div>
+                                {{/each}}
+                            </div>
+                            <div class='col-2 col-price' style='padding-right: 24px;'>
+                                {{#each getDetailCart}}
+                                    <div class='product-payment-wrap product-payment-wrap--right'>
+                                        <strong class='product-payment-quantity'><strong>x</strong>
+                                            {{quantity}}</strong>
+                                        <strong class='product-payment-price'>{{price}}.000</strong>
+                                    </div>
+                                {{/each}}
+                            </div>
+                            <div class='col-5 payment-wrap'>
+                                <form method='POST' action='/cart/payment'>
+                                    <div class='payment-method'>
+                                        <div class='payment-title'>Phương thức thanh toán</div>
+                                        <div hidden class='value-type-payment'>{{getOrder.payment_Method}}</div>
+                                        <label class='form-select-payment'>
+                                            <div class='payment-check'>
+                                                <input
+                                                    type='radio'
+                                                    name='payment_Method'
+                                                    disabled
+                                                    value='Momo'
+                                                    checked
+                                                />
+                                                <span>Thanh toán qua ví Momo</span>
+                                            </div>
+                                        </label>
+                                        <label class='form-select-payment'>
+                                            <div class='payment-check'>
+                                                <input type='radio' name='payment_Method' disabled value='Cash' />
+                                                <span>Thanh toán khi nhận hàng</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class='payment-total'>
+                                        <div class='payment-total-title'>Tổng tiền: </div>
+                                        <input type='hidden' name='total' value={{getCart.total}} />
+                                        <strong class='payment-total-number'>{{getCart.total}}.000</strong>
+                                    </div>
+                                    <!-- Payment Info -->
+                                    <div class='payment-button'>
+                                        <a href='/cart'>
+                                            <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
+                                        </a>
+                                        <input hidden name='id_Cart' id='id_Cart' value={{getCart._id}} />
+                                        <input hidden name='confirm_Order' id='confirm_Order' value='Đã hủy' />
+                                        <input hidden name='order_Status' id='order_Status' value='Đã hủy' />
+                                        <input hidden name='state' id='state' value='false' />
+
+                                        <button type='submit' class='btn btn-payment btn-cancel'>Hủy đơn</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ const Payment = require('../models/payment')
 
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
+// const { foods } = require('../../util/header')
 
 class UserController {
     // [GET] /user
@@ -130,13 +131,42 @@ class UserController {
         // getPayment.map((item) => {
         //     const getCart.pu = item
         // })
-
-        res.json(getCart)
+        // res.json(foods)
 
         // res.render('history', {
         //     getPayment: mutipleMongooseToObject(getPayment),
         //     // totalRevenue,
         // })
+    }
+
+    // [GET] /user/order
+    async order(req, res, next) {
+        try {
+            var token = req.cookies.token
+            if (token) {
+                const getCart = await Cart.findOne({ id_Account: token, state: true })
+                const getCartID = getCart._id
+
+                const getDetailCart = getCart.detail_Cart
+                const getFoodId = getDetailCart.map((item) => item.id_Food)
+                const listFood = []
+                for (let i of getFoodId) {
+                    let food = await Food.find({ _id: i })
+                    listFood.push(...food)
+                }
+
+                const payment = await Payment.findOne({ id_Cart: getCartID })
+
+                res.render('order', {
+                    getCart: mongooseToObject(getCart),
+                    getFood: mutipleMongooseToObject(listFood),
+                    getPayment: mongooseToObject(payment),
+                    getDetailCart,
+                }).catch(next)
+            } else {
+                res.render('login')
+            }
+        } catch (error) {}
     }
 }
 

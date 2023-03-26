@@ -36,7 +36,7 @@
   border-top: 1px solid #000; }
 
 .nav__mobile-item-link {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 500;
   text-decoration: none;
   color: white;
@@ -68,7 +68,9 @@
   transform: translateX(0%); }
 
 .nav__mobile-icon {
-  font-size: 2rem;
+  position: relative;
+  top: 4px;
+  font-size: 2.4rem;
   margin-right: 12px;
   color: white; }
 

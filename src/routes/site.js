@@ -9,6 +9,7 @@ router.put('/editProfile/:id', userController.update)
 // tìm kiếm
 router.get('/search', userController.search)
 router.get('/history', userController.history)
+router.get('/order', userController.order)
 
 router.get('/', userController.home)
 
