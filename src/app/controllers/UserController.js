@@ -145,24 +145,31 @@ class UserController {
             var token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
-                const getCartID = getCart._id
+                if (getCart) {
+                    const getCartID = getCart._id
 
-                const getDetailCart = getCart.detail_Cart
-                const getFoodId = getDetailCart.map((item) => item.id_Food)
-                const listFood = []
-                for (let i of getFoodId) {
-                    let food = await Food.find({ _id: i })
-                    listFood.push(...food)
+                    const getDetailCart = getCart.detail_Cart
+                    const getFoodId = getDetailCart.map((item) => item.id_Food)
+                    const listFood = []
+                    for (let i of getFoodId) {
+                        let food = await Food.find({ _id: i })
+                        listFood.push(...food)
+                    }
+
+                    const payment = await Payment.findOne({ id_Cart: getCartID })
+
+                    res.render('order', {
+                        getCart: mongooseToObject(getCart),
+                        getFood: mutipleMongooseToObject(listFood),
+                        getPayment: mongooseToObject(payment),
+                        getDetailCart,
+                    }).catch(next)
+                } else {
+                    res.render('order', {
+                        title: 'Bạn chưa đặt đơn hàng nào.',
+                        countFood: 0,
+                    }).catch(next)
                 }
-
-                const payment = await Payment.findOne({ id_Cart: getCartID })
-
-                res.render('order', {
-                    getCart: mongooseToObject(getCart),
-                    getFood: mutipleMongooseToObject(listFood),
-                    getPayment: mongooseToObject(payment),
-                    getDetailCart,
-                }).catch(next)
             } else {
                 res.render('login')
             }
