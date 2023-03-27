@@ -4,7 +4,7 @@ const router = express.Router()
 const userController = require('../app/controllers/UserController')
 
 router.get('/editProfile', userController.editProfile)
-router.put('/editProfile/:id', userController.update)
+router.post('/editProfile/:id', userController.update)
 
 // tìm kiếm
 router.get('/search', userController.search)

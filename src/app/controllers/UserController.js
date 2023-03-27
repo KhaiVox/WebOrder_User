@@ -91,7 +91,7 @@ class UserController {
     async update(req, res, next) {
         var token = req.cookies.token
 
-        Account.updateOne({ id_Account: token }, req.body)
+        Account.findOneAndUpdate({ id_Account: token }, req.body)
             .then(() => res.redirect('/user/editProfile'))
             .catch(next)
     }

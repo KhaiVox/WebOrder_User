@@ -24,6 +24,7 @@
   margin-bottom: 52px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column; }
 
 .process-line {
@@ -40,13 +41,15 @@
   height: 25px;
   font-size: 1.4rem;
   color: white;
-  background-color: #004262;
+  background-color: #1c6758;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center; }
   .process-line-item:nth-child(1) {
     left: 0; }
+  .process-line-item:nth-child(1).active-current .process-line {
+    background-color: red; }
   .process-line-item:nth-child(2) {
     left: 25%; }
   .process-line-item:nth-child(3) {

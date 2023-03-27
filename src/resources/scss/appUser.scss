@@ -72,13 +72,6 @@ body::-webkit-scrollbar-thumb {
     outline: none;
 }
 
-.btn-sort {
-    cursor: pointer;
-    &:hover {
-        color: $dark-primary;
-    }
-}
-
 /* Scroll Top */
 .scroll-top {
     position: fixed;
