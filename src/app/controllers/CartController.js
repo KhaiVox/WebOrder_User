@@ -53,6 +53,7 @@ class CartController {
     async addCart(req, res, next) {
         var token = req.cookies.token
         const { id_Food, price } = req.body
+
         // chuyển đổi price thành kiểu number
         let priceConvert = parseInt(price)
 
@@ -81,7 +82,8 @@ class CartController {
                 },
                 { detail_Cart: detailCart, total: newTotal },
             )
-            res.json({ mssg: 'Đã cập nhật thành công!' })
+            // res.json({ mssg: 'Đã cập nhật thành công!' })
+            res.redirect('/user')
         }
         // Chưa có giỏ hàng sẽ tiến hành tạo mới
         else {
@@ -103,7 +105,6 @@ class CartController {
             var token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
-                const getCartID = getCart._id
 
                 const getDetailCart = getCart.detail_Cart
                 const getFoodId = getDetailCart.map((item) => item.id_Food)
@@ -113,12 +114,9 @@ class CartController {
                     listFood.push(...food)
                 }
 
-                const payment = await Payment.findOne({ id_Cart: getCartID })
-
                 res.render('payment', {
                     getCart: mongooseToObject(getCart),
                     getFood: mutipleMongooseToObject(listFood),
-                    getPayment: mongooseToObject(payment),
                     getDetailCart,
                 }).catch(next)
             } else {
@@ -127,7 +125,7 @@ class CartController {
         } catch (error) {}
     }
 
-    // [GET] /cart/payment
+    // [POST] /cart/payment
     async payment(req, res, next) {
         var token = req.cookies.token
         const { id_Cart, payment_Method, confirm_Order, order_Status, state } = req.body

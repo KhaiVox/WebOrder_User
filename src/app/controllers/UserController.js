@@ -133,10 +133,10 @@ class UserController {
         // })
         // res.json(foods)
 
-        // res.render('history', {
-        //     getPayment: mutipleMongooseToObject(getPayment),
-        //     // totalRevenue,
-        // })
+        res.render('history', {
+            getPayment: mutipleMongooseToObject(getPayment),
+            // totalRevenue,
+        })
     }
 
     // [GET] /user/order

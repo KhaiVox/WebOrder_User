@@ -43,23 +43,25 @@ const btnViewCart = document.querySelector('.header__cart-item-view-cart')
 //     }
 //     quantity.innerText = countQtt
 // }
-const carts = document.querySelectorAll('.btn-add-cart')
-const cartId = document.querySelectorAll('input[name=id_Food]')
-const prices = document.querySelectorAll('input[name=price]')
-for (let i = 0; i < carts.length; i++) {
-    carts[i].addEventListener('click', async function () {
-        const res = await fetch('http://localhost:3002/cart/addCart', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
-        })
-        const json = await res.json()
-        console.log(json)
-        alert('Đã thêm thành công')
-        const resAfter = await fetch('http://localhost:3002/user', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
-        })
-    })
-}
+
+// Ajax thêm giỏ hàng
+// const carts = document.querySelectorAll('.btn-add-cart')
+// const cartId = document.querySelectorAll('input[name=id_Food]')
+// const prices = document.querySelectorAll('input[name=price]')
+// for (let i = 0; i < carts.length; i++) {
+//     carts[i].addEventListener('click', async function () {
+//         const res = await fetch('http://localhost:3002/cart/addCart', {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
+//         })
+//         const json = await res.json()
+//         console.log(json)
+//         alert('Đã thêm thành công')
+//         const resAfter = await fetch('http://localhost:3002/user', {
+//             method: 'GET',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
+//         })
+//     })
+// }
