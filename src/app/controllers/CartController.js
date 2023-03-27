@@ -7,13 +7,13 @@ const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
 class CartController {
-    // [PUT] /cart
+    // [GET] /cart
     async cart(req, res, next) {
         try {
-            // , state: true
             var token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
+                // .sort({ _id: -1 })
                 if (getCart) {
                     const getDetailCart = getCart.detail_Cart
 
@@ -53,7 +53,6 @@ class CartController {
     async addCart(req, res, next) {
         var token = req.cookies.token
         const { id_Food, price } = req.body
-
         // chuyển đổi price thành kiểu number
         let priceConvert = parseInt(price)
 
@@ -71,10 +70,10 @@ class CartController {
                     duplicate = true
                 }
             }
+
             if (!duplicate) {
                 detailCart.push({ id_Food, quantity: 1, price: priceConvert })
             }
-
             await Cart.findOneAndUpdate(
                 {
                     id_Account: token,
@@ -82,9 +81,10 @@ class CartController {
                 },
                 { detail_Cart: detailCart, total: newTotal },
             )
-            res.redirect('/user')
-        } else {
-            // Chưa có giỏ hàng sẽ tiến hành tạo mới
+            res.json({ mssg: 'Đã cập nhật thành công!' })
+        }
+        // Chưa có giỏ hàng sẽ tiến hành tạo mới
+        else {
             const detail_Cart = []
             detail_Cart.push({ id_Food, quantity: 1, price: priceConvert })
 
@@ -94,8 +94,6 @@ class CartController {
                 total: priceConvert,
                 state: true,
             })
-                .then(() => res.redirect('/user'))
-                .catch(next)
         }
     }
 

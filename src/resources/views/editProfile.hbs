@@ -1,16 +1,16 @@
 <div class='container-right'>
     <div class='create edit-food'>
-        <div class="create-left">
+        <div class='create-left'>
             <div class='create-item'>
-                <img src={{user.avatar}} alt="">
+                <img src={{user.avatar}} alt='' />
             </div>
-            <div class="btn btn-edit-avatar">
-                <input type="file" name="" id="">
+            <div class='btn btn-edit-avatar'>
+                <input type='file' name='' id='' />
             </div>
         </div>
-        <div class="create-right">
+        <div class='create-right'>
             <div class='create-header'>Hồ Sơ Của Tôi</div>
-            <form method='POST' action='/user/editProfile/{{user._id}}?_method=PUT'>
+            <form method='POST' action='/user/editProfile/{{user._id}}'>
                 <div class='create-item'>
                     <div class='create-title'>Tên của bạn :</div>
                     <input type='text' class='create-input' name='fullname' id='fullname' value='{{user.fullname}}' />
@@ -27,15 +27,15 @@
                     <div class='create-title'>Địa chỉ :</div>
                     <input type='text' class='create-input' name='address' id='address' value='{{user.address}}' />
                 </div>
-                
+
                 <div class='create-button'>
                     <a href='/user'>
-                        <div class="btn btn-quit">↩ Quay lại</div>
+                        <div class='btn btn-quit'>↩ Quay lại</div>
                     </a>
                     <button class='btn btn-confirm'>Lưu thông tin</button>
                 </div>
             </form>
-            
+
         </div>
     </div>
 </div>
