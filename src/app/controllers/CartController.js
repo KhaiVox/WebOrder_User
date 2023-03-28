@@ -10,7 +10,7 @@ class CartController {
     // [GET] /cart
     async cart(req, res, next) {
         try {
-            var token = req.cookies.token
+            let token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
                 // .sort({ _id: -1 })
@@ -51,7 +51,7 @@ class CartController {
 
     // [POST] /cart/addCart
     async addCart(req, res, next) {
-        var token = req.cookies.token
+        let token = req.cookies.token
         const { id_Food, price } = req.body
 
         // chuyển đổi price thành kiểu number
@@ -102,7 +102,7 @@ class CartController {
     // [GET] /cart/:id
     async detailPayment(req, res, next) {
         try {
-            var token = req.cookies.token
+            let token = req.cookies.token
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
 
@@ -127,7 +127,7 @@ class CartController {
 
     // [POST] /cart/payment
     async payment(req, res, next) {
-        var token = req.cookies.token
+        let token = req.cookies.token
         const { id_Cart, payment_Method, confirm_Order, order_Status, state } = req.body
 
         // reset lại giỏ hàng sau khi thanh toán

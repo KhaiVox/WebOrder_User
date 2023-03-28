@@ -13,7 +13,7 @@ class UserController {
         try {
             // kiểm tra thấy nếu token có giá trị sẽ cho phép truy cập vào trang HOME
             // sai sẽ trả về trang LOGIN
-            var token = req.cookies.token
+            let token = req.cookies.token
             if (token) {
                 const foods = await Food.find()
                 const user = await Account.findOne({ _id: token })
@@ -55,7 +55,7 @@ class UserController {
     // [GET] /user/filter
     filter(req, res, next) {
         try {
-            var token = req.cookies.token
+            let token = req.cookies.token
             if (token) {
                 Promise.all([Food.find({ type: req.params.slug }), Account.findOne({ _id: token })])
                     .then(([foods, user]) => {
@@ -74,7 +74,7 @@ class UserController {
     // [GET] /user/editProfile
     editProfile(req, res, next) {
         try {
-            var token = req.cookies.token
+            let token = req.cookies.token
             if (token) {
                 Account.findOne({ _id: token })
                     .then((user) => {
@@ -89,9 +89,8 @@ class UserController {
 
     // [PUT] /user/editProfile/:id
     async update(req, res, next) {
-        var token = req.cookies.token
-
-        Account.findOneAndUpdate({ id_Account: token }, req.body)
+        let token = req.cookies.token
+        await Account.findByIdAndUpdate(token, req.body)
             .then(() => res.redirect('/user/editProfile'))
             .catch(next)
     }
@@ -142,13 +141,17 @@ class UserController {
     // [GET] /user/order
     async order(req, res, next) {
         try {
-            var token = req.cookies.token
+            let token = req.cookies.token
+            // nếu k có cart mới cho vào đây
             if (token) {
-                const getCart = await Cart.findOne({ id_Account: token, state: true })
-                if (getCart) {
-                    const getCartID = getCart._id
+                const getCart = await Cart.find({ id_Account: token, state: false })
+                const lastCart = getCart[getCart.length - 1]
+                const idLastCart = lastCart._id
+                const getPayment = await Payment.findOne({ id_Cart: idLastCart })
+                const stateOrder = getPayment.order_Status
 
-                    const getDetailCart = getCart.detail_Cart
+                if (getPayment) {
+                    const getDetailCart = lastCart.detail_Cart
                     const getFoodId = getDetailCart.map((item) => item.id_Food)
                     const listFood = []
                     for (let i of getFoodId) {
@@ -156,13 +159,12 @@ class UserController {
                         listFood.push(...food)
                     }
 
-                    const payment = await Payment.findOne({ id_Cart: getCartID })
-
                     res.render('order', {
-                        getCart: mongooseToObject(getCart),
+                        lastCart: mongooseToObject(lastCart),
                         getFood: mutipleMongooseToObject(listFood),
-                        getPayment: mongooseToObject(payment),
+                        getPayment: mongooseToObject(getPayment),
                         getDetailCart,
+                        stateOrder,
                     }).catch(next)
                 } else {
                     res.render('order', {

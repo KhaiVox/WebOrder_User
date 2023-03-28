@@ -8,8 +8,8 @@ class AuthController {
 
     // [POST] /auth/login
     login(req, res, next) {
-        var username = req.body.username
-        var password = req.body.password
+        let username = req.body.username
+        let password = req.body.password
 
         Account.findOne({
             username: username,
@@ -38,11 +38,11 @@ class AuthController {
 
     // [POST] /auth/register
     register(req, res, next) {
-        var username = req.body.username
-        var password = req.body.password
-        var phone = req.body.phone
-        var address = req.body.address
-        var fullname = req.body.fullname
+        let username = req.body.username
+        let password = req.body.password
+        let phone = req.body.phone
+        let address = req.body.address
+        let fullname = req.body.fullname
 
         Account.findOne({
             username: username,
@@ -57,10 +57,10 @@ class AuthController {
                         phone: phone,
                         address: address,
                         fullname: fullname,
+                        avatar: '',
                         deleted: false,
                     }).then((data) => {
                         res.redirect('login')
-                        // res.json('Tạo tài khoản thành công!')
                     })
                 }
             })

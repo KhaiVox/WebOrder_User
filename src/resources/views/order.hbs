@@ -2,21 +2,16 @@
     <div class='container'>
         <div class='create-header cart-header'>Đơn hàng của bạn</div>
         <div class='process-order'>
-            <ul class='process-line'>
-                <li class='process-line-item active-current'>
-                    <ion-icon name='checkmark-outline'></ion-icon>
-                </li>
-                <li class='process-line-item'>
-                    <ion-icon name='checkmark-outline'></ion-icon>
-                </li>
-                <li class='process-line-item'>
-                    <ion-icon name='checkmark-outline'></ion-icon>
-                </li>
-                <li class='process-line-item'>
-                    <ion-icon name='checkmark-outline'></ion-icon>
-                </li>
-            </ul>
+            <div class='process-line'>
+                <div class='process-sub-line'></div>
+                <div class='process-des-item'>Chưa duyệt</div>
+                <div class='process-des-item ml-25'>Đã duyệt</div>
+                <div class='process-des-item ml-50'>Đang chuẩn bị</div>
+                <div class='process-des-item ml-75'>Đang giao</div>
+                <div class='process-des-item ml-full'>Hoàn tất</div>
+            </div>
         </div>
+        <input hidden id='value-state' value='{{stateOrder}}' />
         <h1 class='notify-cart'>{{title}}</h1>
         <div class='payment-body'>
             <div class='row'>
@@ -67,15 +62,15 @@
                                     </div>
                                     <div class='payment-total'>
                                         <div class='payment-total-title'>Tổng tiền: </div>
-                                        <input type='hidden' name='total' value={{getCart.total}} />
-                                        <strong class='payment-total-number'>{{getCart.total}}.000</strong>
+                                        <input type='hidden' name='total' value={{lastCart.total}} />
+                                        <strong class='payment-total-number'>{{lastCart.total}}.000 Đ</strong>
                                     </div>
                                     <!-- Payment Info -->
                                     <div class='payment-button'>
                                         <a href='/cart'>
                                             <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
                                         </a>
-                                        <input hidden name='id_Cart' id='id_Cart' value={{getCart._id}} />
+                                        <input hidden name='id_Cart' id='id_Cart' value={{lastCart._id}} />
                                         <input hidden name='confirm_Order' id='confirm_Order' value='Đã hủy' />
                                         <input hidden name='order_Status' id='order_Status' value='Đã hủy' />
                                         <input hidden name='state' id='state' value='false' />
