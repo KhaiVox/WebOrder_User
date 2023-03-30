@@ -14,6 +14,7 @@ const Product = new Schema(
         img: { type: String },
         type: { type: String },
         price: { type: String },
+        deleted: { type: Boolean },
     },
     {
         collection: 'foods',

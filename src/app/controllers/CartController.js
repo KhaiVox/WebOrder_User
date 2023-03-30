@@ -149,7 +149,14 @@ class CartController {
             total: totalPayment,
             state,
         })
-            .then(() => res.redirect('/user'))
+            .then(() => res.redirect('/user/order'))
+            .catch(next)
+    }
+
+    // [POST] /cancel/:id
+    cancel(req, res, next) {
+        Payment.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/user/order'))
             .catch(next)
     }
 }

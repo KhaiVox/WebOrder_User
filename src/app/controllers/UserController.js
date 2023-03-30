@@ -15,7 +15,7 @@ class UserController {
             // sai sẽ trả về trang LOGIN
             let token = req.cookies.token
             if (token) {
-                const foods = await Food.find()
+                const foods = await Food.find({ deleted: false })
                 const user = await Account.findOne({ _id: token })
 
                 const getCart = await Cart.findOne({ id_Account: token, state: true })

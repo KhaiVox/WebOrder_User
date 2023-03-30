@@ -12,25 +12,38 @@ switch (valueState) {
         break
     case 'Đã duyệt':
         lineState.classList.add('w-25')
-        btnCancel.classList.add('hidden')
+        btnCancel.setAttribute('disabled', 'disabled')
+        btnCancel.style.border = '1px solid red'
         processDes[1].style.color = '#eb0e0e'
         break
     case 'Đang chuẩn bị':
         lineState.classList.remove('w-25')
         lineState.classList.add('w-50')
-        btnCancel.classList.add('hidden')
+        btnCancel.setAttribute('disabled', 'disabled')
+        btnCancel.style.border = '1px solid red'
         processDes[2].style.color = '#eb0e0e'
         break
     case 'Đang giao':
         lineState.classList.remove('w-50')
         lineState.classList.add('w-75')
-        btnCancel.classList.add('hidden')
+        btnCancel.setAttribute('disabled', 'disabled')
+        btnCancel.style.border = '1px solid red'
         processDes[3].style.color = '#eb0e0e'
         break
     case 'Hoàn tất':
         lineState.classList.remove('w-75')
         lineState.classList.add('w-100')
-        btnCancel.classList.add('hidden')
+        btnCancel.setAttribute('disabled', 'disabled')
+        btnCancel.style.border = '1px solid red'
         processDes[4].style.color = '#eb0e0e'
         break
+}
+
+// nếu đã hủy đơn sẽ disable button "Hủy đơn"
+
+const valueStatusOrder = document.querySelector('.value-status').value
+if (valueStatusOrder == 'Đã hủy') {
+    btnCancel.innerHTML = 'Đã hủy'
+    btnCancel.setAttribute('disabled', 'disabled')
+    btnCancel.style.border = '1px solid red'
 }

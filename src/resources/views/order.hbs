@@ -1,7 +1,7 @@
 <div class='payment'>
     <div class='container'>
         <div class='create-header cart-header'>Đơn hàng của bạn</div>
-        <div class='process-order'>
+        <div class='process-order hide-on-mobile'>
             <div class='process-line'>
                 <div class='process-sub-line'></div>
                 <div class='process-des-item'>Chưa duyệt</div>
@@ -37,7 +37,7 @@
                                 {{/each}}
                             </div>
                             <div class='col-5 payment-wrap'>
-                                <form method='POST' action='/cart/payment'>
+                                <form method='POST' action='/cart/{{getPayment._id}}/cancel'>
                                     <div class='payment-method'>
                                         <div class='payment-title'>Phương thức thanh toán</div>
                                         <div hidden class='value-type-payment'>{{getOrder.payment_Method}}</div>
@@ -75,6 +75,7 @@
                                         <input hidden name='order_Status' id='order_Status' value='Đã hủy' />
                                         <input hidden name='state' id='state' value='false' />
 
+                                        <input hidden class='value-status' value='{{getPayment.order_Status}}' />
                                         <button type='submit' class='btn btn-payment btn-cancel'>Hủy đơn</button>
                                     </div>
                                 </form>

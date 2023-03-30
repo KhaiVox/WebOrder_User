@@ -9,10 +9,13 @@ router.get('/', cartController.cart)
 // thêm vào giỏ
 router.post('/addCart', cartController.addCart)
 
-// chi tiết dơn hàng
+// chi tiết đơn hàng
 router.get('/:id', cartController.detailPayment)
 
 // thanh toán
 router.post('/payment', cartController.payment)
+
+// hủy đơn
+router.post('/:id/cancel', cartController.cancel)
 
 module.exports = router
