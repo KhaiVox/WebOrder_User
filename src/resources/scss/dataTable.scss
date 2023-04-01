@@ -1,5 +1,5 @@
 @import 'variables';
-// Description
+
 .dataTables_info {
     display: none !important;
     font-size: 1.7rem;
@@ -36,10 +36,8 @@
 }
 
 .pagination {
-    position: absolute;
-    top: 500px;
-    left: 42%;
-    bottom: -60px;
+    margin-top: 32px;
+    margin-right: 500px;
     a {
         font-size: 1.6rem;
         font-weight: 500;

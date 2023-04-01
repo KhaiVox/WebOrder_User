@@ -120,22 +120,49 @@ class UserController {
 
     // [GET] /user/history
     async history(req, res, next) {
-        const getPayment = await Payment.find({ $or: [{ order_Status: 'Hoàn tất' }, { order_Status: 'Đã hủy' }] })
-        // const getPaymentSuccess = await Payment.find({ order_Status: 'Hoàn tất' })
-        // let totalRevenue = 0
+        try {
+            let token = req.cookies.token
+            if (token) {
+                const getOrderUser = await Cart.find({ id_Account: token, state: false })
 
-        // getPaymentSuccess.map((item) => {
-        //     totalRevenue += item.total
-        // })
-        // getPayment.map((item) => {
-        //     const getCart.pu = item
-        // })
-        // res.json(foods)
+                let countOrder = 0
+                let totalOrder = 0
+                let listOrderUser = []
+                let listOrderSuccess = []
+                for (let i of getOrderUser) {
+                    // tìm ra những đơn đã hoàn tất or đã hủy
+                    const getPayment = await Payment.findOne({
+                        id_Cart: i._id,
+                        $or: [{ order_Status: 'Hoàn tất' }, { order_Status: 'Đã hủy' }],
+                    })
 
-        res.render('history', {
-            getPayment: mutipleMongooseToObject(getPayment),
-            // totalRevenue,
-        })
+                    // đếm tổng đơn đã đặt và lấy ra lịch sử các đơn
+                    if (getPayment) {
+                        countOrder++
+                        listOrderUser.push(getPayment)
+                    }
+
+                    // lấy danh sách đơn thành công
+                    const getPaymentSuccess = await Payment.findOne({ id_Cart: i._id, order_Status: 'Hoàn tất' })
+                    if (getPaymentSuccess) {
+                        listOrderSuccess.push(getPaymentSuccess)
+                    }
+                }
+
+                // tính tổng tiền đơn thành công
+                for (let i of listOrderSuccess) {
+                    totalOrder += i.total
+                }
+
+                res.render('history', {
+                    countOrder,
+                    totalOrder,
+                    listOrderUser: mutipleMongooseToObject(listOrderUser),
+                }).catch(next)
+            } else {
+                res.render('login')
+            }
+        } catch (error) {}
     }
 
     // [GET] /user/order

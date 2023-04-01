@@ -6,8 +6,10 @@
 
 .pill-title-item--purchase {
   position: absolute;
-  top: 20px;
-  right: 22px; }
+  top: 250px;
+  right: 235px;
+  display: flex;
+  align-items: center; }
 
 .modal-footer--modal {
   display: flex;
@@ -15,8 +17,17 @@
   justify-content: space-between;
   padding: 0 12px; }
 
+.pill-charge {
+  font-size: 1.7rem;
+  margin-right: 14px; }
+
 .price-wrap {
   display: flex; }
+
+.pill-des-charge {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #1c6758; }
 
 .process-order {
   width: 100%;
@@ -53,16 +64,16 @@
   text-align: left; }
 
 .w-25 {
-  width: 25%; }
+  width: 30% !important; }
 
 .w-50 {
-  width: 50%; }
+  width: 60% !important; }
 
 .w-75 {
-  width: 75%; }
+  width: 82% !important; }
 
 .w-full {
-  width: 100%; }
+  width: 100% !important; }
 
 .ml-25 {
   left: 25%; }

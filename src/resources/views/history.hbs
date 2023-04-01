@@ -1,5 +1,5 @@
 <div class='cart-header'>
-    <h1 class='create-header'>Lịch Sử Đơn Đặt ({{countFood}})</h1>
+    <h1 class='create-header'>Lịch Sử Đơn Đặt ({{countOrder}})</h1>
 </div>
 
 <div class='form-detail'>
@@ -16,7 +16,7 @@
         </thead>
 
         <tbody>
-            {{#each getPayment}}
+            {{#each listOrderUser}}
                 <tr>
                     <td class='list-item-des'>{{sum @index 1}}</td>
                     <td class='list-item-des day_value hide-on-mobile'>{{createdAt}}</td>
@@ -42,9 +42,9 @@
     </table>
 </div>
 <div class='pill-title-item--purchase'>
-    <h4 class='pill-charge'>Tổng doanh thu:</h4>
-    <div class='price-wrap' style='margin-left: 24px;'>
-        <h4 class='pill-des-charge number-total number-total-value'>{{totalRevenuePurchase}}</h4>
-        <h4 class='pill-des-charge number-total'>.000 đ</h4>
+    <h4 class='pill-charge'>Tổng chi tiêu:</h4>
+    <div class='price-wrap'>
+        <h4 class='pill-des-charge number-total-value'>{{totalOrder}}</h4>
+        <h4 class='pill-des-charge'>.000 đ</h4>
     </div>
 </div>
