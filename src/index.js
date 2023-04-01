@@ -3,6 +3,16 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const app = express()
 
+// Session express
+const session = require('express-session')
+app.use(
+    session({
+        resave: true,
+        saveUninitialized: true,
+        secret: 'somesecret',
+    }),
+)
+
 // Thư viện PUT, PATCH
 const methodOverride = require('method-override')
 const port = 3002

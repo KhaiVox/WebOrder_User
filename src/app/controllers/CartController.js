@@ -1,16 +1,16 @@
 const Food = require('../models/product')
-const Account = require('../models/account')
 const Cart = require('../models/cart')
 const Payment = require('../models/payment')
 
-const { mongooseToObject } = require('../../util/mongoose')
-const { mutipleMongooseToObject } = require('../../util/mongoose')
+const { mongooseToObject, mutipleMongooseToObject } = require('../../util/mongoose')
 
 class CartController {
     // [GET] /cart
     async cart(req, res, next) {
         try {
             let token = req.cookies.token
+            let user = req.session.user
+
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
                 // .sort({ _id: -1 })
@@ -25,9 +25,9 @@ class CartController {
                         listFood.push(...food)
                     }
 
-                    let count = 0
+                    let countTotal = 0
                     for (let element of getDetailCart) {
-                        count += element.quantity
+                        countTotal += element.quantity
                     }
 
                     res.render('cart', {
@@ -35,7 +35,8 @@ class CartController {
                         getFood: mutipleMongooseToObject(listFood),
                         getDetailCart,
                         countFood,
-                        count,
+                        countTotal,
+                        user,
                     }).catch(next)
                 } else {
                     res.render('cart', {
@@ -96,6 +97,7 @@ class CartController {
                 total: priceConvert,
                 state: true,
             })
+            res.redirect('/user')
         }
     }
 
@@ -103,6 +105,9 @@ class CartController {
     async detailPayment(req, res, next) {
         try {
             let token = req.cookies.token
+            let user = req.session.user
+            let countFood = req.session.countFood
+
             if (token) {
                 const getCart = await Cart.findOne({ id_Account: token, state: true })
 
@@ -118,6 +123,8 @@ class CartController {
                     getCart: mongooseToObject(getCart),
                     getFood: mutipleMongooseToObject(listFood),
                     getDetailCart,
+                    user,
+                    countFood,
                 }).catch(next)
             } else {
                 res.render('login')
