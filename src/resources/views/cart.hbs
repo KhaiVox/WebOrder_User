@@ -64,12 +64,18 @@
             <div class='cart-footer'>
                 <div class='cart-total'>
                     <div class='cart-title-total'>Số lượng : <span>{{countTotal}}</span></div>
-                    <div class='cart-title-total'>Tổng tiền : <span>{{cart_info.total}}.000 Đ</span></div>
+                    <div class='cart-title-total'>Tổng tiền :
+                        <span class='number-total-value'>{{cart_info.total}}</span>
+                        <span style='margin-left: -4px;'>.000 Đ</span>
+                    </div>
                 </div>
                 <div class='cart-btn'>
                     <a href='/user' class='cart-next'>Tiếp tục mua sắm</a>
                     <a href='/cart/{{cart_info._id}}'>
-                        <div class='cart-payment'>Đặt món</div>
+                        {{! <div class='cart-payment'>Đặt món</div> }}
+                        <button>
+                            Đặt món
+                        </button>
                     </a>
                 </div>
             </div>

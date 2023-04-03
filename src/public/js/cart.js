@@ -45,23 +45,32 @@ const btnViewCart = document.querySelector('.header__cart-item-view-cart')
 // }
 
 // Ajax thêm giỏ hàng
-// const carts = document.querySelectorAll('.btn-add-cart')
-// const cartId = document.querySelectorAll('input[name=id_Food]')
-// const prices = document.querySelectorAll('input[name=price]')
-// for (let i = 0; i < carts.length; i++) {
-//     carts[i].addEventListener('click', async function () {
-//         const res = await fetch('http://localhost:3002/cart/addCart', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
-//         })
-//         const json = await res.json()
-//         console.log(json)
-//         alert('Đã thêm thành công')
-//         const resAfter = await fetch('http://localhost:3002/user', {
-//             method: 'GET',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
-//         })
-//     })
-// }
+const carts = document.querySelectorAll('.btn-add-cart')
+const cartId = document.querySelectorAll('input[name=id_Food]')
+const prices = document.querySelectorAll('input[name=price]')
+
+const numberDesTotal = document.querySelector('.header__cart-notice')
+
+for (let i = 0; i < carts.length; i++) {
+    carts[i].addEventListener('click', async function () {
+        await fetch('http://localhost:3002/cart/addCart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
+        })
+            .then(() => {
+                alert('Đã thêm thành công !')
+                // cập nhật số lượng sản phẩm trong giỏ hàng
+                // để hiển thị lại trên giao diện header bằng ajax
+                fetch('http://localhost:3002/cart/cartTotal', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                })
+                    .then((response) => response.json())
+                    .then((totalProductCart) => {
+                        numberDesTotal.innerHTML = totalProductCart
+                    })
+            })
+            .catch((error) => console.error(error))
+    })
+}

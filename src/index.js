@@ -9,8 +9,33 @@ app.use(
     session({
         resave: true,
         saveUninitialized: true,
-        secret: 'somesecret',
+        secret: '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',
     }),
+)
+
+// Singin with GG
+const passport = require('passport')
+const GooglePlusTokenStrategy = require('passport-google-plus-token')
+
+passport.use(
+    new GooglePlusTokenStrategy(
+        {
+            clientID: '774738805405-rf21nn4ubasnpupkbdl7v7tkcpkaetqv.apps.googleusercontent.com',
+            clientSecret: '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',
+        },
+        async (accessToken, refreshToken, profile) => {
+            try {
+                // User.findOrCreate({ 'google.id': profile.id }, function (error, user) {
+                //     return next(error, user)
+                // })
+                console.log(accessToken)
+                console.log(refreshToken)
+                console.log(profile)
+            } catch (error) {
+                done(error, false)
+            }
+        },
+    ),
 )
 
 // Thư viện PUT, PATCH

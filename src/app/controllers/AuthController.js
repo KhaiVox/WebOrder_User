@@ -68,6 +68,11 @@ class AuthController {
                 res.status(500).json('Tạo tài khoản thất bại!')
             })
     }
+
+    // [POST] /auth/google
+    google(req, res, next) {
+        console.log(req.user)
+    }
 }
 
 module.exports = new AuthController()
