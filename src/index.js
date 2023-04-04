@@ -13,35 +13,6 @@ app.use(
     }),
 )
 
-// Singin with GG
-const passport = require('passport')
-const GooglePlusTokenStrategy = require('passport-google-plus-token')
-
-passport.use(
-    new GooglePlusTokenStrategy(
-        {
-            clientID: '774738805405-rf21nn4ubasnpupkbdl7v7tkcpkaetqv.apps.googleusercontent.com',
-            clientSecret: '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',
-        },
-        async (accessToken, refreshToken, profile) => {
-            try {
-                // User.findOrCreate({ 'google.id': profile.id }, function (error, user) {
-                //     return next(error, user)
-                // })
-                console.log(accessToken)
-                console.log(refreshToken)
-                console.log(profile)
-            } catch (error) {
-                done(error, false)
-            }
-        },
-    ),
-)
-
-// Thư viện PUT, PATCH
-const methodOverride = require('method-override')
-const port = 3002
-
 var cookieParser = require('cookie-parser')
 app.use(cookieParser())
 
@@ -57,14 +28,22 @@ app.use(
 )
 app.use(express.json())
 
+// Authentication with GG
+require('./authGoogle')
+const passport = require('passport')
+
+app.use(session({ secret: 'admin', resave: false, saveUninitialized: true }))
+app.use(passport.session())
+app.use(passport.initialize())
+
+const methodOverride = require('method-override')
+const port = 3002
+
 // dùng khi muốn sử dụng method="PUT" cho việc edit sản phẩm
 app.use(methodOverride('_method'))
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')))
-
-// Models
-// const AccountModel = require('./admin/app/models/account')
 
 // Template engine
 app.engine(
@@ -85,9 +64,9 @@ app.listen(port, () => {
     console.log(`App listening on port http://localhost:${port}/user`)
 })
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
+// app.get('/', (req, res) => {
+//     res.render('home')
+// })
 
 // Log out
 app.get('/deleteCookie', function (req, res, next) {
@@ -98,6 +77,8 @@ app.get('/deleteCookie', function (req, res, next) {
         }
         res.cookie(prop, '', { expires: new Date(0) })
     }
+    // req.logout()
+    req.session.destroy()
     res.redirect('/auth/login')
 })
 

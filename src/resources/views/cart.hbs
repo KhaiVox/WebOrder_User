@@ -26,37 +26,41 @@
                     <div class='row'>
                         <h1 class='notify-cart'>{{title}}</h1>
                         <div class='col-7'>
-                            {{#each getFood}}
-                                <div class='cart-wrap'>
-                                    <div class='cart-wrap-item'>
-                                        <img src={{img}} width='120' alt='' class='cart-img' />
+                            <div class='cart-wrap-container'>
+                                {{#each getFood}}
+                                    <div class='cart-wrap'>
+                                        <div class='cart-wrap-item'>
+                                            <img src={{img}} width='120' alt='' class='cart-img' />
+                                        </div>
+                                        <div class='cart-wrap-item cart-wrap-item--right'>
+                                            <div class='cart-name' title='Designers Chair Vol.1'>{{name}}</div>
+                                        </div>
                                     </div>
-                                    <div class='cart-wrap-item cart-wrap-item--right'>
-                                        <div class='cart-name' title='Designers Chair Vol.1'>{{name}}</div>
-                                    </div>
-                                </div>
-                            {{/each}}
+                                {{/each}}
+                            </div>
                         </div>
                         <div class='col-5'>
-                            {{#each getDetailCart}}
-                                <div class='cart-wrap'>
-                                    <div class='cart-wrap-item'>
-                                        <input
-                                            class='cart-quantity'
-                                            type='number'
-                                            value={{quantity}}
-                                            max='10'
-                                            min='1'
-                                            data-id='{{_id}}'
-                                            onchange='updatePrice(this)'
-                                        />
+                            <div class='cart-wrap-container'>
+                                {{#each getDetailCart}}
+                                    <div class='cart-wrap'>
+                                        <div class='cart-wrap-item'>
+                                            <input
+                                                class='cart-quantity'
+                                                type='number'
+                                                value={{quantity}}
+                                                max='10'
+                                                min='1'
+                                                data-id='{{_id}}'
+                                                onchange='updatePrice(this)'
+                                            />
+                                        </div>
+                                        <div class='cart-wrap-item'>
+                                            <div class='cart-price'>{{price}}.000 </div>
+                                        </div>
+                                        <i class='cart-delete fa-solid fa-trash'></i>
                                     </div>
-                                    <div class='cart-wrap-item'>
-                                        <div class='cart-price'>{{price}}.000 </div>
-                                    </div>
-                                    <i class='cart-delete fa-solid fa-trash'></i>
-                                </div>
-                            {{/each}}
+                                {{/each}}
+                            </div>
                         </div>
                     </div>
                 </div>

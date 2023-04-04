@@ -69,9 +69,47 @@ class AuthController {
             })
     }
 
-    // [POST] /auth/google
+    // [GET] /auth/google
     google(req, res, next) {
         console.log(req.user)
+    }
+
+    // [POST] /auth/registerGoogle
+    registerGoogle(req, res, next) {
+        let fullname = req.user.displayName
+        let username = req.user.displayName
+
+        // tạo pass ngẫu nhiên gồm 15 số
+        let password = ''
+        for (let i = 0; i < 15; i++) {
+            password += Math.floor(Math.random() * 10)
+        }
+
+        // kiểm tra nếu người dùng đã có tài khoản chưa
+        Account.findOne({
+            username: username,
+        })
+            .then((data) => {
+                if (data) {
+                    // nếu có rồi sẽ setCookie và đăng nhập vào
+                    res.cookie('token', data._id)
+                    res.redirect('/user')
+                } else {
+                    // nếu chưa đó sẽ tạo mới và cho phép đăng nhập vào
+                    Account.create({
+                        fullname: fullname,
+                        username: username,
+                        password: password,
+                        deleted: false,
+                    }).then((data) => {
+                        res.cookie('token', data._id)
+                        res.redirect('/user')
+                    })
+                }
+            })
+            .catch((err) => {
+                res.status(500).json('Tạo tài khoản thất bại!')
+            })
     }
 }
 

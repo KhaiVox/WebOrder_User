@@ -25,6 +25,10 @@
 .cart-list {
   text-align: center; }
 
+.cart-wrap-container {
+  display: flex;
+  flex-direction: column-reverse; }
+
 .cart-wrap {
   display: flex;
   align-items: center;
