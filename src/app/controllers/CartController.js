@@ -12,7 +12,6 @@ class CartController {
             let user = req.session.user
 
             const getCart = await Cart.findOne({ id_Account: token, state: true })
-            // .sort({ _id: -1 })
             if (getCart) {
                 const getDetailCart = getCart.detail_Cart
 

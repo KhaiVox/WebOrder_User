@@ -144,6 +144,8 @@
   .scroll-top {
     right: 20px;
     bottom: 20px; }
+  .cart-button {
+    font-size: 1.3rem; }
   .create-left {
     display: none; }
   .create-right,

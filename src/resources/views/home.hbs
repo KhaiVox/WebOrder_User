@@ -40,10 +40,21 @@
                                     >{{price}}</span>.000 đ</span>
                             </div>
                             <div class='home-product-btn'>
-                                <button class='btn btn-warning btn-add-cart' type='submit'><span><ion-icon
+                                {{! <button hidden class='btn btn-warning btn-add-cart' type='submit'><span><ion-icon
                                             name='cart-outline'
                                         ></ion-icon></span>
-                                    Thêm vào giỏ</button>
+                                    Thêm vào giỏ</button> }}
+                                <button class='btn btn-warning btn-add-cart cart-button'>
+                                    <span class='add-to-cart'>
+                                        Thêm vào giỏ
+                                    </span>
+                                    <span class='added'>
+                                        Đã thêm
+                                    </span>
+                                    <i class='fas fa-shopping-cart'></i>
+                                    <i class='fas fa-box'></i>
+                                </button>
+
                             </div>
                             {{! </form> }}
                         </div>

@@ -123,10 +123,14 @@
 .btn-login {
   width: 100%;
   height: 42px;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.6rem;
   margin-top: 22px;
   color: white;
   background-color: #1c6758; }
+  .btn-login a {
+    color: white;
+    padding: 8px 135px; }
   .btn-login:hover {
     color: white;
     background-color: #0e483d; }

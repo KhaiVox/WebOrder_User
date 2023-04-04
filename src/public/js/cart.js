@@ -59,7 +59,6 @@ for (let i = 0; i < carts.length; i++) {
             body: JSON.stringify({ id_Food: cartId[i].value, price: prices[i].value }),
         })
             .then(() => {
-                alert('Đã thêm thành công !')
                 // cập nhật số lượng sản phẩm trong giỏ hàng
                 // để hiển thị lại trên giao diện header bằng ajax
                 fetch('http://localhost:3002/cart/cartTotal', {
@@ -72,5 +71,18 @@ for (let i = 0; i < carts.length; i++) {
                     })
             })
             .catch((error) => console.error(error))
+    })
+}
+
+// Animation Add Cart
+const cartBtn = document.querySelectorAll('.cart-button')
+
+for (let i = 0; i <= cartBtn.length; i++) {
+    cartBtn[i].addEventListener('click', () => {
+        cartBtn[i].classList.add('clicked')
+
+        setTimeout(() => {
+            cartBtn[i].classList.remove('clicked')
+        }, 2000)
     })
 }

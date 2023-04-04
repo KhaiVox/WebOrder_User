@@ -108,9 +108,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 // Content
-@import 'home';
 @import 'base';
 @import 'grid';
+@import 'home';
 @import 'menu-mobile';
 @import 'login';
 @import 'register';

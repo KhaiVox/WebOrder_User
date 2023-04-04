@@ -78,6 +78,8 @@ class AuthController {
     registerGoogle(req, res, next) {
         let fullname = req.user.displayName
         let username = req.user.displayName
+        let phone = ''
+        let address = ''
 
         // tạo pass ngẫu nhiên gồm 15 số
         let password = ''
@@ -100,6 +102,8 @@ class AuthController {
                         fullname: fullname,
                         username: username,
                         password: password,
+                        phone: phone,
+                        address: address,
                         deleted: false,
                     }).then((data) => {
                         res.cookie('token', data._id)
