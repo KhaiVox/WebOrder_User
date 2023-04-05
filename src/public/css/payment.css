@@ -130,7 +130,8 @@
     width: 50px;
     height: 38px;
     border: none;
-    outline: none; }
+    outline: none;
+    cursor: pointer; }
     .user-address .btn-address:hover {
       opacity: 0.9; }
 
