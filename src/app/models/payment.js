@@ -18,6 +18,8 @@ const PaymentSchema = new Schema(
         state: { type: Boolean },
         total: { type: Number },
         point: { type: Boolean },
+        latitude: { type: String },
+        longitude: { type: String },
         createdAt: { type: Date, default: Date.now },
     },
     {

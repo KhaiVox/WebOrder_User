@@ -141,7 +141,7 @@ class CartController {
     // [POST] /cart/payment
     async payment(req, res, next) {
         let token = req.cookies.token
-        const { id_Cart, payment_Method, confirm_Order, order_Status, state } = req.body
+        const { id_Cart, payment_Method, confirm_Order, order_Status, state, latitude, longitude } = req.body
 
         // reset lại giỏ hàng sau khi thanh toán
         const getCart = await Cart.findOneAndUpdate(
@@ -161,6 +161,8 @@ class CartController {
             order_Status,
             total: totalPayment,
             state,
+            latitude,
+            longitude,
         })
             .then(() => res.redirect('/user/order'))
             .catch(next)

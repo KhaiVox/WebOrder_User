@@ -412,6 +412,8 @@
   padding: 12px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
+  .header__cart-wrap:hover {
+    opacity: 0.9; }
 
 .header__cart-icon {
   font-size: 2.4rem;
@@ -419,8 +421,8 @@
 
 .header__cart-notice {
   position: absolute;
-  top: 2px;
-  right: -3px;
+  top: -2px;
+  right: -2px;
   padding: 0px 6px;
   font-size: 1.4rem;
   border-radius: 10px;
@@ -639,6 +641,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
   transform: translate(-50%, -50%); }
 
 .cart-button .added {

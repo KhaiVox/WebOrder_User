@@ -41,12 +41,29 @@
                                                 <span>Thanh toán khi nhận hàng</span>
                                             </div>
                                         </label>
+                                        {{! GG Map }}
+                                        <div class='user-address'>
+                                            <div class='user-address-title'>Địa chỉ :</div>
+                                            <input hidden name='latitude' id='latitude' value='' />
+                                            <input hidden name='longitude' id='longitude' value='' />
+                                            <input
+                                                type='text'
+                                                class='user-address-input'
+                                                id='address'
+                                                value=''
+                                                required
+                                            />
+                                            <button class='btn-address' onclick='locate();'>
+                                                <span><ion-icon name='location-outline'></ion-icon></span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class='payment-total'>
                                         <div class='payment-total-title'>Tổng tiền: </div>
                                         <input type='hidden' name='total' value={{getCart.total}} />
                                         <strong class='payment-total-number'>{{getCart.total}}.000 Đ</strong>
                                     </div>
+
                                     <!-- Payment Info -->
                                     <div class='payment-button'>
                                         <a href='/cart'>

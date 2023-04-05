@@ -80,6 +80,7 @@ class AuthController {
         let username = req.user.displayName
         let phone = ''
         let address = ''
+        let avatar = ''
 
         // tạo pass ngẫu nhiên gồm 15 số
         let password = ''
@@ -104,6 +105,7 @@ class AuthController {
                         password: password,
                         phone: phone,
                         address: address,
+                        avatar: avatar,
                         deleted: false,
                     }).then((data) => {
                         res.cookie('token', data._id)
