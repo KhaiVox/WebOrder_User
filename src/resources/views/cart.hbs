@@ -57,7 +57,7 @@
                                         <div class='cart-wrap-item'>
                                             <div class='cart-price'>{{price}}.000 </div>
                                         </div>
-                                        <i class='cart-delete fa-solid fa-trash'></i>
+                                        <ion-icon class='cart-delete' name='close-outline'></ion-icon>
                                     </div>
                                 {{/each}}
                             </div>
@@ -76,10 +76,7 @@
                 <div class='cart-btn'>
                     <a href='/user' class='cart-next'>Tiếp tục mua sắm</a>
                     <a href='/cart/{{cart_info._id}}'>
-                        {{! <div class='cart-payment'>Đặt món</div> }}
-                        <button>
-                            Đặt món
-                        </button>
+                        <button>Đặt món</button>
                     </a>
                 </div>
             </div>

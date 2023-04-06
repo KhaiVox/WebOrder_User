@@ -90,6 +90,7 @@
 .cart-delete {
   font-size: 2.4rem;
   position: relative;
+  top: 3px;
   left: -60px;
   cursor: pointer;
   color: #494949; }

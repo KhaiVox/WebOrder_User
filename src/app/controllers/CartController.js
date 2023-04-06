@@ -1,6 +1,7 @@
 const Food = require('../models/product')
 const Cart = require('../models/cart')
 const Payment = require('../models/payment')
+const Account = require('../models/account')
 
 const { mongooseToObject, mutipleMongooseToObject } = require('../../util/mongoose')
 
@@ -143,29 +144,35 @@ class CartController {
         let token = req.cookies.token
         const { id_Cart, payment_Method, confirm_Order, order_Status, state, latitude, longitude } = req.body
 
-        // reset lại giỏ hàng sau khi thanh toán
-        const getCart = await Cart.findOneAndUpdate(
-            {
-                id_Account: token,
-                state: true,
-            },
-            { state: false },
-        )
+        // nếu user đã bị chặn sẽ không cho đặt
+        const userAccount = await Account.find({ _id: token, deleted: true })
+        if (userAccount == '') {
+            // reset lại giỏ hàng sau khi thanh toán
+            const getCart = await Cart.findOneAndUpdate(
+                {
+                    id_Account: token,
+                    state: true,
+                },
+                { state: false },
+            )
 
-        let totalPayment = getCart.total
+            let totalPayment = getCart.total
 
-        await Payment.create({
-            id_Cart,
-            payment_Method,
-            confirm_Order,
-            order_Status,
-            total: totalPayment,
-            state,
-            latitude,
-            longitude,
-        })
-            .then(() => res.redirect('/user/order'))
-            .catch(next)
+            await Payment.create({
+                id_Cart,
+                payment_Method,
+                confirm_Order,
+                order_Status,
+                total: totalPayment,
+                state,
+                latitude,
+                longitude,
+            })
+                .then(() => res.redirect('/user/order'))
+                .catch(next)
+        } else {
+            res.redirect('/user')
+        }
     }
 
     // [POST] /cancel/:id
